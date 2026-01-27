@@ -1,47 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
-    text-align: center;
-    color: #fff;
-  }
-  
-  section {
-    padding: 80px 20px;
-  }
-  
-  .hero h1 {
-    font-size: 3rem;
-  }
-  
-  button {
-    padding: 12px 25px;
-    border: none;
-    border-radius: 30px;
-    font-size: 1rem;
-    cursor: pointer;
-    margin: 10px;
-    background-color: #ff4b5c;
-    color: white;
-    transition: 0.3s;
-  }
-  
-  button:hover {
-    transform: scale(1.1);
-  }
-  
-  .gallery img {
-    width: 200px;
-    border-radius: 20px;
-    margin: 10px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-  }
-  
-  .question {
-    position: relative;
-  }
-  
-  #noBtn {
-    position: absolute;
-  }
-  
+  font-family: 'Playfair Display', serif;
+  color: white;
+  background: linear-gradient(-45deg, #ff758c, #ff7eb3, #fad0c4, #fbc2eb);
+  background-size: 400% 400%;
+  animation: gradient 12s ease infinite;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+section {
+  min-height: 100vh;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero h1 {
+  font-family: 'Sacramento', cursive;
+  font-size: 4rem;
+}
+
+.hero p {
+  margin: 20px 0;
+  font-size: 1.2rem;
+}
+
+button {
+  background: rgba(255,255,255,0.2);
+  border: 2px solid white;
+  padding: 12px 30px;
+  border-radius: 30px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: white;
+  color: #ff4b6e;
+  transform: scale(1.1);
+}
+
+.letter p {
+  max-width: 700px;
+  margin: auto;
+  font-size: 1.3rem;
+  line-height: 1.8;
+}
+
+.memories .gallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.memories img {
+  width: 220px;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+  transition: 0.4s;
+}
+
+.memories img:hover {
+  transform: scale(1.1);
+}
+
+.question .buttons {
+  position: relative;
+  height: 100px;
+}
+
+#noBtn {
+  position: absolute;
+}
+
+/* Floating hearts */
+.hearts::before {
+  content: "💖 💕 💗 💓 💞";
+  position: fixed;
+  top: -10%;
+  left: 0;
+  width: 100%;
+  font-size: 2rem;
+  animation: fall 10s linear infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-100px); opacity: 1; }
+  100% { transform: translateY(110vh); opacity: 0; }
+}
