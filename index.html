@@ -1,51 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>For You ❤️</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Sacramento&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day Sanjana ❤️</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: white;
+        }
+
+        /* Floating Hearts */
+        .heart {
+            position: fixed;
+            bottom: -20px;
+            font-size: 20px;
+            animation: floatUp 6s linear infinite;
+            opacity: 0.9;
+            pointer-events: none;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-120vh) scale(1.6);
+                opacity: 0;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30px;
+            animation: fadeIn 2s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 3.8rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            max-width: 650px;
+            margin: 0 auto 35px;
+            line-height: 1.7;
+        }
+
+        .btn {
+            background: #ff2e63;
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+            background: #ff0844;
+        }
+
+        /* Sections */
+        .section {
+            padding: 90px 20px;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-family: 'Pacifico', cursive;
+            font-size: 3rem;
+            margin-bottom: 40px;
+        }
+
+        /* Cards */
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.2);
+            border-radius: 25px;
+            padding: 25px;
+            width: 300px;
+            backdrop-filter: blur(12px);
+            transition: all 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-18px) scale(1.06);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 18px;
+            margin-bottom: 18px;
+        }
+
+        /* Final Love Section */
+        .final {
+            background: rgba(0,0,0,0.1);
+            border-radius: 30px;
+            padding: 50px 25px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        footer {
+            padding: 30px;
+            text-align: center;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.7rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<!-- Floating Hearts -->
-<div class="hearts"></div>
+    <!-- Floating Hearts -->
+    <div id="hearts"></div>
 
-<!-- Hero -->
-<section class="hero">
-  <h1>Hi My Love 💖</h1>
-  <p>I made this little universe just for you</p>
-  <button onclick="scrollToSection('letter')">Open 💌</button>
-</section>
+    <!-- HERO -->
+    <section class="hero">
+        <div>
+            <h1>Happy Valentine's Day ❤️</h1>
+            <p>
+                My dearest <strong>Sanjana</strong>,  
+                every smile of yours brightens my world and every moment with you feels magical.  
+                This little website is a small gift to show how deeply I love you.
+            </p>
+            <a href="#love" class="btn">Tap for Love 💖</a>
+        </div>
+    </section>
 
-<!-- Love Letter -->
-<section id="letter" class="letter">
-  <h2>My Love Letter To You</h2>
-  <p id="typewriter"></p>
-</section>
+    <!-- LOVE SECTION -->
+    <section class="section" id="love">
+        <h2>Why I Love You 💕</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="https://media.giphy.com/media/l0HlOvJ7yaacpuSas/giphy.gif">
+                <p>Your smile melts my heart every single time 🌸</p>
+            </div>
+            <div class="card">
+                <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif">
+                <p>You make my life happier, warmer, and more beautiful ✨</p>
+            </div>
+            <div class="card">
+                <img src="https://media.giphy.com/media/26FLdmIp6wJr91JAI/giphy.gif">
+                <p>Every moment with you feels like a dream come true 💖</p>
+            </div>
+        </div>
+    </section>
 
-<!-- Memories -->
-<section class="memories">
-  <h2>Our Memories ✨</h2>
-  <div class="gallery">
-    <img src="images/her1.jpeg">
-    <img src="images/her2.jpeg">
-    <img src="images/her3.jpeg">
-  </div>
-</section>
+    <!-- FINAL MESSAGE -->
+    <section class="section">
+        <div class="final">
+            <h2>Forever & Always 💍</h2>
+            <p>
+                Sanjana, I promise to stand by you, love you, and cherish you—today, tomorrow, and always.  
+                You are my heart, my happiness, and my forever Valentine.
+            </p>
+            <h2>❤️ Yours, Mohith ❤️</h2>
+        </div>
+    </section>
 
-<!-- Question -->
-<section class="question">
-  <h2>Will You Be My Valentine? 🌹</h2>
-  <div class="buttons">
-    <button onclick="yesAnswer()">Yes 💍</button>
-    <button id="noBtn">No 🙈</button>
-  </div>
-  <p id="answer"></p>
-</section>
+    <footer>
+        Made with infinite love for Sanjana 💕
+    </footer>
 
-<script src="script.js"></script>
+    <script>
+        const heartsContainer = document.getElementById('hearts');
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.fontSize = Math.random() * 20 + 15 + 'px';
+            heart.style.animationDuration = Math.random() * 3 + 4 + 's';
+            heartsContainer.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 7000);
+        }
+
+        setInterval(createHeart, 300);
+    </script>
+
 </body>
 </html>
-
-
