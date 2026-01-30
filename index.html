@@ -1,235 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Valentine's Day Sanjana ❤️</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Sanjana ❤️</title>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+body{
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#ff758c,#ff7eb3);
+  color:white; overflow-x:hidden;
+}
+h1,h2{font-family:'Pacifico',cursive}
+.section{padding:100px 20px;text-align:center}
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #ff758c, #ff7eb3);
-            min-height: 100vh;
-            overflow-x: hidden;
-            color: white;
-        }
+/* Hearts */
+.heart{position:fixed;bottom:-20px;font-size:20px;animation:up 7s linear infinite;opacity:.8}
+@keyframes up{to{transform:translateY(-120vh) scale(1.8);opacity:0}}
 
-        /* Floating Hearts */
-        .heart {
-            position: fixed;
-            bottom: -20px;
-            font-size: 20px;
-            animation: floatUp 6s linear infinite;
-            opacity: 0.9;
-            pointer-events: none;
-        }
+/* Hero */
+.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.typewriter{font-size:2rem;margin-top:20px;height:50px}
 
-        @keyframes floatUp {
-            0% {
-                transform: translateY(0) scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-120vh) scale(1.6);
-                opacity: 0;
-            }
-        }
+/* Buttons */
+.btn{
+  background:#ff2e63;border:none;color:white;padding:14px 35px;
+  border-radius:30px;font-size:1rem;margin:10px;cursor:pointer;
+  transition:.3s;box-shadow:0 10px 25px rgba(0,0,0,.3)
+}
+.btn:hover{transform:scale(1.1)}
 
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 30px;
-            animation: fadeIn 2s ease;
-        }
+/* Gallery */
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;max-width:900px;margin:auto}
+.gallery img{width:100%;border-radius:20px;transition:.4s}
+.gallery img:hover{transform:scale(1.08)}
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+/* Letter Popup */
+.popup{
+  position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
+  background:white;color:#333;width:90%;max-width:500px;
+  padding:30px;border-radius:20px;display:none;z-index:10;
+}
+.popup h3{color:#ff2e63;margin-bottom:15px}
+.overlay{
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,.6);display:none;z-index:9;
+}
 
-        h1 {
-            font-family: 'Pacifico', cursive;
-            font-size: 3.8rem;
-            margin-bottom: 20px;
-        }
+/* Proposal */
+#proposal{display:none}
+.proposal-btns{margin-top:30px}
 
-        p {
-            font-size: 1.2rem;
-            max-width: 650px;
-            margin: 0 auto 35px;
-            line-height: 1.7;
-        }
+/* Music */
+.music{
+ position:fixed;top:20px;right:20px;background:white;color:#ff2e63;
+ padding:10px 14px;border-radius:50%;cursor:pointer;font-weight:bold;
+}
 
-        .btn {
-            background: #ff2e63;
-            padding: 16px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            color: white;
-            font-size: 1.1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.25);
-        }
-
-        .btn:hover {
-            transform: scale(1.1);
-            background: #ff0844;
-        }
-
-        /* Sections */
-        .section {
-            padding: 90px 20px;
-            text-align: center;
-        }
-
-        .section h2 {
-            font-family: 'Pacifico', cursive;
-            font-size: 3rem;
-            margin-bottom: 40px;
-        }
-
-        /* Cards */
-        .cards {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .card {
-            background: rgba(255,255,255,0.2);
-            border-radius: 25px;
-            padding: 25px;
-            width: 300px;
-            backdrop-filter: blur(12px);
-            transition: all 0.4s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-18px) scale(1.06);
-        }
-
-        .card img {
-            width: 100%;
-            border-radius: 18px;
-            margin-bottom: 18px;
-        }
-
-        /* Final Love Section */
-        .final {
-            background: rgba(0,0,0,0.1);
-            border-radius: 30px;
-            padding: 50px 25px;
-            max-width: 800px;
-            margin: auto;
-        }
-
-        footer {
-            padding: 30px;
-            text-align: center;
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2.7rem;
-            }
-        }
-    </style>
+/* Clue */
+#clue{display:none;font-size:1.3rem;margin-top:40px}
+</style>
 </head>
+
 <body>
 
-    <!-- Floating Hearts -->
-    <div id="hearts"></div>
+<div class="music" onclick="toggleMusic()">♫</div>
+<audio id="music" loop>
+ <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_6f2b4a0a68.mp3">
+</audio>
 
-    <!-- HERO -->
-    <section class="hero">
-        <div>
-            <h1>Happy Valentine's Day ❤️</h1>
-            <p>
-                My dearest <strong>Sanjana</strong>,  
-                every smile of yours brightens my world and every moment with you feels magical.  
-                This little website is a small gift to show how deeply I love you.
-            </p>
-            <a href="#love" class="btn">Tap for Love 💖</a>
-        </div>
-    </section>
+<!-- Hearts -->
+<div id="hearts"></div>
 
-    <!-- LOVE SECTION -->
-    <section class="section" id="love">
-        <h2>Why I Love You 💕</h2>
-        <div class="cards">
-            <div class="card">
-                <img src="https://media.giphy.com/media/l0HlOvJ7yaacpuSas/giphy.gif">
-                <p>Your smile melts my heart every single time 🌸</p>
-            </div>
-            <div class="card">
-                <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif">
-                <p>You make my life happier, warmer, and more beautiful ✨</p>
-            </div>
-            <div class="card">
-                <img src="https://media.giphy.com/media/26FLdmIp6wJr91JAI/giphy.gif">
-                <p>Every moment with you feels like a dream come true 💖</p>
-            </div>
-        </div>
-    </section>
+<!-- HERO -->
+<section class="hero">
+  <h1>Happy Valentine's Day ❤️</h1>
+  <div class="typewriter" id="type"></div>
+  <button class="btn" onclick="openLetter()">Read My Love Letter 💌</button>
+  <button class="btn" onclick="showGallery()">Our Memories 📸</button>
+</section>
 
-    <!-- FINAL MESSAGE -->
-    <section class="section">
-        <div class="final">
-            <h2>Forever & Always 💍</h2>
-            <p>
-                Sanjana, I promise to stand by you, love you, and cherish you—today, tomorrow, and always.  
-                You are my heart, my happiness, and my forever Valentine.
-            </p>
-            <h2>❤️ Yours, Mohith ❤️</h2>
-        </div>
-    </section>
+<!-- GALLERY -->
+<section class="section" id="gallery" style="display:none">
+  <h2>Our Beautiful Memories</h2>
+  <div class="gallery">
+    <!-- Replace with YOUR photos -->
+    <img src="photo1.jpg">
+    <img src="photo2.jpg">
+    <img src="photo3.jpg">
+    <img src="photo4.jpg">
+  </div>
+  <button class="btn" onclick="startProposal()">Continue ❤️</button>
+</section>
 
-    <footer>
-        Made with infinite love for Sanjana 💕
-    </footer>
+<!-- PROPOSAL -->
+<section class="section" id="proposal">
+  <h2>Sanjana, Will You Be My Forever Valentine? 💍</h2>
+  <div class="proposal-btns">
+    <button class="btn" onclick="showClue()">YES 💖</button>
+    <button class="btn" id="noBtn">NO 😜</button>
+  </div>
+  <div id="clue">
+    🎁 Your surprise gift is waiting where we keep our sweetest memories...  
+    <br><br>
+    👉 <strong>Inside the pillow cover on the bed</strong> 😉
+  </div>
+</section>
 
-    <script>
-        const heartsContainer = document.getElementById('hearts');
+<!-- LETTER -->
+<div class="overlay" id="overlay" onclick="closeLetter()"></div>
+<div class="popup" id="letter">
+  <h3>My Dearest Sanjana ❤️</h3>
+  <p>
+    From the moment you entered my life, everything became brighter.  
+    Your smile, your voice, your presence — they mean the world to me.  
+    This little surprise is just a glimpse of how much I love you.  
+    You are my today, tomorrow, and forever.  
+  </p>
+  <br>
+  <p>Forever yours,<br><strong>Mohith</strong></p>
+</div>
 
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.classList.add('heart');
-            heart.innerHTML = '❤️';
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.fontSize = Math.random() * 20 + 15 + 'px';
-            heart.style.animationDuration = Math.random() * 3 + 4 + 's';
-            heartsContainer.appendChild(heart);
+<script>
+// Hearts
+setInterval(()=>{
+ let h=document.createElement('div');
+ h.className='heart';
+ h.innerHTML='❤️';
+ h.style.left=Math.random()*100+'vw';
+ document.body.appendChild(h);
+ setTimeout(()=>h.remove(),7000);
+},300);
 
-            setTimeout(() => {
-                heart.remove();
-            }, 7000);
-        }
+// Typewriter
+const text="I love you Sanjana… more than words can ever express ❤️";
+let i=0;
+function typing(){
+ if(i<text.length){
+   document.getElementById('type').innerHTML+=text.charAt(i);
+   i++; setTimeout(typing,60);
+ }
+}
+typing();
 
-        setInterval(createHeart, 300);
-    </script>
+// Letter popup
+function openLetter(){
+ document.getElementById('letter').style.display='block';
+ document.getElementById('overlay').style.display='block';
+}
+function closeLetter(){
+ document.getElementById('letter').style.display='none';
+ document.getElementById('overlay').style.display='none';
+}
+
+// Gallery
+function showGallery(){
+ document.getElementById('gallery').style.display='block';
+ window.scrollTo(0,document.body.scrollHeight);
+}
+
+// Proposal
+function startProposal(){
+ document.getElementById('proposal').style.display='block';
+ window.scrollTo(0,document.body.scrollHeight);
+}
+
+// No button runs away
+const noBtn=document.getElementById('noBtn');
+noBtn.addEventListener('mouseover',()=>{
+ noBtn.style.position='absolute';
+ noBtn.style.left=Math.random()*80+'%';
+ noBtn.style.top=Math.random()*80+'%';
+});
+
+// Show clue
+function showClue(){
+ document.getElementById('clue').style.display='block';
+}
+
+// Music
+const music=document.getElementById('music');
+function toggleMusic(){
+ if(music.paused) music.play();
+ else music.pause();
+}
+</script>
 
 </body>
 </html>
