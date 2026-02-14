@@ -1,164 +1,125 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
 body{
-    font-family:'Crimson Text',serif;
-    overflow-x:hidden;
+  margin:0;
+  font-family:'Crimson Text',serif;
+  background:#fff4f7;
+  color:#5a3a44;
 }
 
-.bg{
-    position:fixed;
-    inset:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    z-index:-2;
+/* TIMELINE */
+
+.timeline-section{
+  padding:120px 60px;
+  position:relative;
 }
 
-.bg-overlay{
-    position:fixed;
-    inset:0;
-    background:rgba(255,255,255,0.35);
-    backdrop-filter:blur(4px);
-    z-index:-1;
+.timeline-section h1{
+  text-align:center;
+  font-family:'Dancing Script',cursive;
+  font-size:3.5rem;
+  color:#c2185b;
+  margin-bottom:100px;
 }
 
-.memories-section{
-    padding:80px 60px 120px;
-    min-height:100vh;
+.timeline{
+  position:relative;
+  max-width:1000px;
+  margin:auto;
 }
 
-h1{
-    font-family:'Dancing Script',cursive;
-    font-size:3.5rem;
-    color:#c2185b;
-    text-align:center;
-    margin-bottom:70px;
+.timeline::before{
+  content:'';
+  position:absolute;
+  left:50%;
+  width:3px;
+  background:#ff4f7b;
+  top:0;
+  bottom:0;
+  transform:translateX(-50%);
 }
 
-.polaroid-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:60px;
-    max-width:1200px;
-    margin:0 auto;
+.timeline-item{
+  width:45%;
+  margin:60px 0;
+  opacity:0;
+  transform:translateY(30px);
+  transition:all .8s ease;
 }
 
-.polaroid{
-    perspective:1200px;
+.timeline-item.show{
+  opacity:1;
+  transform:translateY(0);
 }
 
-.polaroid-inner{
-    background:white;
-    padding:18px 18px 50px;
-    border-radius:6px;
-    box-shadow:0 25px 45px rgba(0,0,0,0.18);
-    transition:all .45s cubic-bezier(.22,.61,.36,1);
-    transform:rotate(calc((var(--r) * 1deg)));
+.timeline-item.left{ float:left; text-align:right; }
+.timeline-item.right{ float:right; text-align:left; }
+
+.emoji{
+  font-size:26px;
+  margin-bottom:10px;
 }
 
-.polaroid:nth-child(odd){ --r: -2; }
-.polaroid:nth-child(even){ --r: 2; }
-
-.polaroid-inner img{
-    width:100%;
-    display:block;
-    border-radius:3px;
+.card{
+  background:white;
+  padding:25px;
+  border-radius:18px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.08);
 }
 
-.caption{
-    margin-top:18px;
-    text-align:center;
-    font-family:'Dancing Script',cursive;
-    font-size:1.4rem;
-    color:#5a3a44;
+.timeline-end{
+  text-align:center;
+  margin-top:150px;
 }
 
-/* Hover Lift */
-.polaroid-inner:hover{
-    transform:rotate(0deg) translateY(-12px) scale(1.03);
-    box-shadow:0 35px 70px rgba(0,0,0,0.25);
-    cursor:pointer;
+.timeline-end h2{
+  font-family:'Dancing Script',cursive;
+  font-size:2.8rem;
+  color:#c2185b;
 }
 
-/* Fullscreen */
-.fullscreen-view{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.65);
-    backdrop-filter:blur(8px);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    z-index:999;
-    transition:opacity .4s ease;
+.line-extend{
+  width:2px;
+  height:100px;
+  background:#ff4f7b;
+  margin:20px auto;
+  animation:grow 2s ease forwards;
 }
 
-.hidden{
-    opacity:0;
-    pointer-events:none;
+@keyframes grow{
+  from{height:0;}
+  to{height:120px;}
 }
 
-.fullscreen-content{
-    width:75vmin;              /* 75% of smaller viewport side */
-    height:75vmin;             /* keeps perfect square */
-    max-width:75vw;
-    max-height:75vh;
-    animation:zoomIn .4s ease forwards;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+/* QUIZ */
+
+.quiz-section{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  backdrop-filter:blur(6px);
 }
 
-.fullscreen-content{
-    width:75vmin;
-    max-width:75vw;
-    max-height:75vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    animation:zoomIn .4s ease forwards;
+.quiz-card{
+  background:white;
+  padding:50px;
+  border-radius:25px;
+  width:500px;
+  text-align:center;
+  box-shadow:0 25px 60px rgba(0,0,0,0.12);
 }
 
-.fullscreen-content .polaroid-inner{
-    width:100%;
-    height:auto;
-    transform:rotate(0deg) !important;
-    padding:20px 20px 55px;
-    background:white;
-    border-radius:6px;
-    box-shadow:0 35px 70px rgba(0,0,0,0.35);
-    display:flex;
-    flex-direction:column;
+.quiz-card h2{
+  font-family:'Dancing Script',cursive;
+  margin-bottom:30px;
+  color:#c2185b;
 }
 
-.fullscreen-content img{
-    width:100%;
-    aspect-ratio:1 / 1;   /* force perfect square */
-    object-fit:contain;   /* IMPORTANT FIX */
-    border-radius:3px;
+.quiz-card button{
+  margin:10px;
+  padding:12px 30px;
+  border:none;
+  border-radius:25px;
+  background:#ff4f7b;
+  color:white;
+  cursor:pointer;
 }
-
-
-
-@keyframes zoomIn{
-    from{ transform:scale(.7); opacity:0; }
-    to{ transform:scale(1); opacity:1; }
-}
-
-@media(max-width:900px){
-    .polaroid-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-}
-
-@media(max-width:600px){
-    .polaroid-grid{
-        grid-template-columns:1fr;
-    }
-}
-
-
