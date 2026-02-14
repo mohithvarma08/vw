@@ -1,11 +1,17 @@
-window.addEventListener("load",()=>{
-const events=document.querySelectorAll(".event");
-events.forEach((el,i)=>{
-setTimeout(()=>el.classList.add("show"),300+i*200);
-});
-});
+const events = document.querySelectorAll(".event");
 
-/* Navigation */
+function reveal() {
+const trigger = window.innerHeight * 0.85;
+events.forEach(event=>{
+const top = event.getBoundingClientRect().top;
+if(top < trigger){
+event.classList.add("show");
+}
+});
+}
+
+window.addEventListener("scroll",reveal);
+window.addEventListener("load",reveal);
 
 function goToQuiz(){
 document.getElementById("timelineSection").classList.remove("active");
@@ -13,71 +19,42 @@ document.getElementById("quizSection").classList.add("active");
 window.scrollTo(0,0);
 }
 
-/* Quiz */
-
-const quizData=[
-{
-question:"Who fell first?",
-options:["Chinnu","Subbu"],
-reaction:"Yes… it was me. And I’d fall again. 🫶"
-},
-{
-question:"Who gets jealous faster?",
-options:["Chinnu","Subbu"],
-reaction:"Hmm… we both know the truth. 👀"
-},
-{
-question:"Who misses the other more?",
-options:["Chinnu","Subbu"],
-reaction:"Honestly… it’s a competition. 🥹"
-},
-{
-question:"Who overthinks more?",
-options:["Chinnu","Subbu"],
-reaction:"It’s okay. You rule my thoughts!"
-},
-{
-question:"Who would get more clingy after marriage?",
-options:["Chinnu","Subbu"],
-reaction:"We both won’t complain. 😏"
-},
-{
-question:"Who imagines our future more?",
-options:["Chinnu","Subbu"],
-reaction:"I already see it. 💍"
-},
-{
-question:"Who chooses the other every single day?",
-options:["Both"],
-reaction:"I choose you. Every single day. Without doubt. 🤍"
-}
+const questions = [
+"Who fell first?",
+"Who gets jealous faster?",
+"Who misses the other more?",
+"Who overthinks more?",
+"Who would get more clingy after marriage?",
+"Who imagines our future more?",
+"Who chooses the other every single day?"
 ];
 
-let current=0;
+const reactions = [
+"Yes… it was me. And I’d fall again. 🫶",
+"Correct. But it’s kind of cute. 😌",
+"Honestly… it’s a competition. 🥹",
+"It’s okay. You rule my thoughts!",
+"We both won’t complain. 😏",
+"I already see it. 💍",
+"I choose you. Every single day. Without doubt. 🤍"
+];
 
-function loadQuestion(){
-const q=quizData[current];
-document.getElementById("question").innerText=q.question;
-const optDiv=document.getElementById("options");
-optDiv.innerHTML="";
-q.options.forEach(o=>{
-const btn=document.createElement("button");
-btn.innerText=o;
-btn.onclick=selectAnswer;
-optDiv.appendChild(btn);
-});
-}
+let index = 0;
 
-function selectAnswer(){
-document.getElementById("reaction").innerText=quizData[current].reaction;
+const q = document.getElementById("question");
+const r = document.getElementById("reaction");
 
+q.innerText = questions[index];
+
+function answer(){
+r.innerText = reactions[index];
 setTimeout(()=>{
-current++;
-if(current<quizData.length){
-loadQuestion();
-document.getElementById("reaction").innerText="";
+index++;
+if(index < questions.length){
+q.innerText = questions[index];
+r.innerText="";
+}else{
+r.innerText="Forever us 💞";
 }
 },2250);
 }
-
-loadQuestion();
