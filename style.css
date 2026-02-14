@@ -4,22 +4,23 @@ font-family:'Poppins',sans-serif;
 overflow:hidden;
 }
 
+/* Background */
 .background{
 position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100%;
-background:url("bg.jpg") center/cover no-repeat;
+background:url("bg.jpg") center center / cover no-repeat;
 z-index:-10;
 }
 
+/* Sections */
 .section{
-width:100%;
 height:100vh;
 display:none;
-text-align:center;
 position:relative;
+text-align:center;
 }
 
 .section.active{
@@ -29,7 +30,7 @@ justify-content:center;
 align-items:center;
 }
 
-/* TITLE */
+/* Title */
 .mainTitle{
 font-family:'Dancing Script',cursive;
 font-size:60px;
@@ -37,108 +38,130 @@ color:#ff2f7d;
 margin-bottom:40px;
 }
 
-/* LETTER */
-.envelope{
-font-size:90px;
+/* Envelope */
+.envelopeImg{
+width:180px;
 cursor:pointer;
-animation:pulse 1.5s infinite;
+transition:0.4s ease;
 }
 
-@keyframes pulse{
-0%{transform:scale(1);}
-50%{transform:scale(1.1);}
-100%{transform:scale(1);}
+.envelopeImg:hover{
+transform:scale(1.1);
 }
 
+/* Letter Card */
 .letterCard{
-display:none;
-width:60%;
-max-width:700px;
+position:absolute;
 background:white;
+width:450px;
+height:450px;
+border-radius:25px;
 padding:50px;
-border-radius:20px;
-box-shadow:0 20px 60px rgba(0,0,0,0.2);
-animation:fadeIn 1s ease forwards;
+box-shadow:0 25px 70px rgba(0,0,0,0.25);
+opacity:0;
+transform:scale(0.6);
+transition:0.6s ease;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+}
+
+.letterCard.show{
+opacity:1;
+transform:scale(1);
+}
+
+.letterCard h2{
+font-family:'Playfair Display',serif;
+font-size:28px;
+color:#ff2f7d;
+margin-bottom:20px;
 }
 
 .letterCard p{
-font-family:'Playfair Display',serif;
-font-size:18px;
-line-height:1.8;
-}
-
-@keyframes fadeIn{
-from{opacity:0;transform:translateY(20px);}
-to{opacity:1;transform:translateY(0);}
-}
-
-/* BUTTON */
-.mainBtn{
-margin-top:30px;
-padding:14px 35px;
 font-size:16px;
+line-height:1.8;
+color:#444;
+}
+
+/* Buttons */
+.mainBtn{
+padding:14px 35px;
 border:none;
 border-radius:30px;
 background:#ff2f7d;
 color:white;
+font-size:15px;
 cursor:pointer;
+transition:0.3s;
 }
 
-/* QUESTION */
-.questionCard{
-width:65%;
-max-width:750px;
+.mainBtn:hover{
+transform:translateY(-3px);
+}
+
+/* Proposal */
+.proposalBox{
 background:white;
-padding:70px;
+padding:80px;
 border-radius:25px;
-box-shadow:0 20px 60px rgba(0,0,0,0.2);
+box-shadow:0 25px 70px rgba(0,0,0,0.25);
 }
 
-.questionCard h2{
+.proposalBox h2{
 font-family:'Playfair Display',serif;
-font-size:30px;
+font-size:32px;
+margin-bottom:40px;
 }
 
-.btnRow{
-margin-top:40px;
-display:flex;
-justify-content:center;
-gap:40px;
-}
-
-.btnRow button{
-padding:15px 40px;
-font-size:18px;
+.proposalBtns button{
+margin:0 20px;
+padding:18px 45px;
 border:none;
 border-radius:30px;
 background:#ff2f7d;
 color:white;
+font-size:18px;
 cursor:pointer;
 }
 
-/* CELEBRATION */
-.celebrateTitle{
-font-family:'Dancing Script',cursive;
-font-size:70px;
-color:#ff2f7d;
+/* Celebration */
+.celebrationBox{
+display:flex;
+flex-direction:column;
+align-items:center;
 }
 
 .sticker{
-font-size:70px;
-margin-top:20px;
-animation:pop 1s infinite alternate;
+width:260px;
+margin-bottom:30px;
 }
 
-@keyframes pop{
-from{transform:scale(1);}
-to{transform:scale(1.1);}
+.celebrationTitle{
+font-family:'Dancing Script',cursive;
+font-size:65px;
+color:#ff2f7d;
 }
 
-#confettiCanvas{
+/* Confetti */
+#confettiContainer{
 position:absolute;
 top:0;
 left:0;
 width:100%;
 height:100%;
 pointer-events:none;
+overflow:hidden;
+}
+
+.confetti{
+position:absolute;
+width:10px;
+height:10px;
+animation:fall 4s linear infinite;
+}
+
+@keyframes fall{
+0%{transform:translateY(-100px) rotate(0);}
+100%{transform:translateY(100vh) rotate(360deg);}
 }
