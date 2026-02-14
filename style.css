@@ -1,226 +1,193 @@
-*{margin:0;padding:0;box-sizing:border-box}
-
-body{
-font-family:'Crimson Text',serif;
-background:#fff4f7;
+body,html{
+margin:0;
+padding:0;
+font-family:'Montserrat',sans-serif;
 overflow-x:hidden;
+background:#000;
 }
 
-.bg{
+.background{
 position:fixed;
 inset:0;
-width:100%;
-height:100%;
-object-fit:cover;
-z-index:-1;
+background:url("bg.jpg") center/cover no-repeat;
+z-index:-2;
 }
 
-/* Section Title */
-.section-title{
-font-family:'Dancing Script',cursive;
-font-size:3.8rem;
-text-align:center;
-margin:80px 0;
-color:#c2185b;
-letter-spacing:1px;
-}
-
-/* ================= TIMELINE ================= */
-
-.timeline{
+.slide{
+min-height:100vh;
+padding:80px 0;
+display:none;
 position:relative;
-width:90%;
-max-width:1100px;
-margin:auto;
 }
 
-.timeline::before{
-content:"";
+.slide.active{
+display:block;
+}
+
+.mainTitle{
+text-align:center;
+font-family:'Dancing Script';
+font-size:60px;
+color:#b3005e;
+margin-bottom:60px;
+}
+
+.timelineWrapper{
+position:relative;
+width:100%;
+display:flex;
+justify-content:center;
+}
+
+.curve{
 position:absolute;
+top:0;
 left:50%;
 transform:translateX(-50%);
-width:3px;
-height:100%;
-background:linear-gradient(to bottom,#e75480,#f8c8dc);
+height:1800px;
+width:400px;
+z-index:1;
+animation:draw 3s ease forwards;
 }
 
-.timeline-item{
+@keyframes draw{
+from{stroke-dasharray:2000;stroke-dashoffset:2000;}
+to{stroke-dashoffset:0;}
+}
+
+.events{
 position:relative;
-width:50%;
-padding:40px 50px;
+width:100%;
+max-width:1100px;
+z-index:2;
+}
+
+.event{
+display:flex;
+align-items:center;
+margin:120px 0;
 opacity:0;
 transform:translateY(40px);
-transition:all .8s ease;
+transition:all 1s ease;
 }
 
-.timeline-item.show{
+.event.show{
 opacity:1;
 transform:translateY(0);
 }
 
-.timeline-item.left{
-left:0;
-text-align:right;
+.event.left{
+justify-content:flex-start;
 }
 
-.timeline-item.right{
-left:50%;
+.event.right{
+justify-content:flex-end;
+}
+
+.card{
+background:rgba(255,255,255,0.92);
+padding:30px;
+border-radius:20px;
+width:420px;
+box-shadow:0 25px 60px rgba(0,0,0,0.25);
+backdrop-filter:blur(10px);
+}
+
+.date{
+color:#c2185b;
+font-weight:600;
+font-size:14px;
+letter-spacing:1px;
+}
+
+.card h3{
+font-family:'Playfair Display';
+margin:8px 0 10px;
+font-size:24px;
+color:#222;
+}
+
+.card p{
+font-size:14px;
+line-height:1.6;
+color:#444;
 }
 
 .emoji{
 position:absolute;
-top:40px;
-font-size:1.7rem;
+left:50%;
+transform:translate(-50%, -50%);
 background:white;
-padding:12px;
 border-radius:50%;
-box-shadow:0 10px 30px rgba(0,0,0,0.15);
+padding:14px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+font-size:22px;
 }
 
-.timeline-item.left .emoji{
-right:-28px;
-}
-
-.timeline-item.right .emoji{
-left:-28px;
-}
-
-.timeline-card{
-background:white;
-padding:30px;
-border-radius:20px;
-box-shadow:0 25px 60px rgba(0,0,0,0.15);
-transition:.3s ease;
-}
-
-.timeline-card:hover{
-transform:translateY(-5px);
-box-shadow:0 35px 70px rgba(0,0,0,0.2);
-}
-
-.timeline-card h3{
-margin-bottom:12px;
-}
-
-.date{
-color:#a14c68;
-font-weight:600;
-font-size:1rem;
-letter-spacing:0.5px;
-}
-
-.title{
-color:#3a1f2d;
-font-weight:700;
-font-size:1.3rem;
-}
-
-.timeline-card p{
-color:#5a3a44;
-line-height:1.7;
-font-size:1.05rem;
-}
-
-/* Timeline End */
-.timeline-end{
+.timelineEnd{
 text-align:center;
-margin:100px 0 150px 0;
+margin-top:80px;
 }
 
-.timeline-end h2{
-font-family:'Dancing Script',cursive;
-font-size:2.8rem;
-color:#c2185b;
+.timelineEnd p{
+font-family:'Playfair Display';
+font-size:26px;
+color:white;
+text-shadow:0 0 20px rgba(255,255,255,0.6);
 }
 
-.line-grow{
-width:2px;
-height:0;
-background:#e75480;
-margin:20px auto;
-animation:grow 2s forwards;
-}
-
-@keyframes grow{
-to{height:80px;}
-}
-
-.continue-btn{
+#toQuiz{
 margin-top:30px;
-padding:14px 40px;
+padding:14px 28px;
 border:none;
 border-radius:30px;
-background:#e75480;
+background:#ff4081;
 color:white;
-font-size:1rem;
+font-weight:600;
 cursor:pointer;
-box-shadow:0 20px 40px rgba(231,84,128,0.4);
 transition:.3s;
 }
 
-.continue-btn:hover{
-transform:translateY(-3px);
+#toQuiz:hover{
+transform:scale(1.05);
 }
 
-/* ================= QUIZ ================= */
+/* QUIZ */
 
-.quiz-section{
-height:100vh;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-transition:opacity .6s ease;
+.quizTitle{
+text-align:center;
+font-family:'Dancing Script';
+font-size:50px;
+color:#b3005e;
+margin-bottom:40px;
 }
 
-.hidden{
-display:none;
-}
-
-.quiz-card{
-background:white;
-padding:60px;
-border-radius:30px;
-width:520px;
-max-width:90%;
-box-shadow:0 35px 80px rgba(0,0,0,0.18);
+.quizCard{
+width:500px;
+margin:0 auto;
+background:rgba(255,255,255,0.95);
+padding:50px;
+border-radius:25px;
+box-shadow:0 30px 80px rgba(0,0,0,0.35);
 text-align:center;
 }
 
-.quiz-question{
-font-family:'Playfair Display',serif;
-font-size:1.8rem;
-margin-bottom:30px;
-color:#3a1f2d;
-}
-
-.quiz-options{
-display:flex;
-justify-content:center;
-gap:20px;
-margin-bottom:25px;
-}
-
-.quiz-options button{
-padding:12px 30px;
+.quizCard button{
+display:block;
+width:100%;
+margin:12px 0;
+padding:14px;
 border:none;
-border-radius:40px;
-background:#f8c8dc;
-color:#3a1f2d;
-cursor:pointer;
-font-weight:600;
-transition:.3s;
-}
-
-.quiz-options button:hover{
-background:#e75480;
+border-radius:30px;
+background:#ff4081;
 color:white;
+font-weight:600;
+cursor:pointer;
 }
 
-.quiz-reaction{
+.reaction{
+margin-top:20px;
 font-style:italic;
-color:#a14c68;
+color:#c2185b;
 min-height:30px;
-font-size:1.05rem;
-transition:.3s;
 }
