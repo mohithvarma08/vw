@@ -19,29 +19,46 @@ const eventsData = [
 ];
 
 const eventsContainer = document.querySelector(".events");
+const timelineContainer = document.querySelector(".timelineContainer");
+const path = document.getElementById("timelinePath");
+
+/* Dynamic height based on number of events */
+const spacing = 220;
+const totalHeight = eventsData.length * spacing + 200;
+
+timelineContainer.style.height = totalHeight + "px";
+path.setAttribute("viewBox", `0 0 600 ${totalHeight}`);
+path.setAttribute("d", `
+M300 0
+${eventsData.map((_,i)=>{
+let y=i*spacing+100;
+return `C ${i%2?180:420} ${y-100}, ${i%2?420:180} ${y}, 300 ${y}`;
+}).join("\n")}
+`);
 
 eventsData.forEach((item,i)=>{
 let div = document.createElement("div");
 div.className="event "+(i%2===0?"left":"right");
-div.style.top=(i*140+100)+"px";
-div.innerHTML=`<h3><span class="date">${item[0]}</span> — ${item[1]}</h3>
-<p>${item[2]}</p>`;
+div.style.top=(i*spacing+50)+"px";
+div.innerHTML=`
+<h3><span class="date">${item[0]}</span> — ${item[1]}</h3>
+<p>${item[2]}</p>
+`;
 eventsContainer.appendChild(div);
 });
 
-/* Fade on scroll */
+/* Fade-in animation */
 const observer=new IntersectionObserver(entries=>{
 entries.forEach(e=>{
 if(e.isIntersecting){
 e.target.classList.add("show");
 }
 });
-},{threshold:.2});
+},{threshold:.15});
 
 document.querySelectorAll(".event").forEach(el=>observer.observe(el));
 
-/* SVG Draw Animation */
-const path=document.getElementById("timelinePath");
+/* Draw path animation */
 const length=path.getTotalLength();
 path.style.strokeDasharray=length;
 path.style.strokeDashoffset=length;
