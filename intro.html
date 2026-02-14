@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Crimson+Text:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+  <img src="bg.jpg" class="bg">
+
+  <audio id="music" loop autoplay>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- COVER -->
+  <div id="cover" class="slide show cover">
+      <button class="openBtn" onclick="openSite()">💌</button>
+      <p class="tapText">Tap to open</p>
+  </div>
+
+  <!-- INTRO -->
+  <div id="intro" class="slide">
+    <h1>Hey you… I made something for you 💌</h1>
+    <img src="sticker1.png" class="sticker">
+    <p>Would you like to see it?</p>
+    <div>
+      <button onclick="goYes()">Yes 💖</button>
+      <button id="noBtn">No 😏</button>
+    </div>
+  </div>
+
+  <!-- NO SLIDE -->
+  <div id="noSlide" class="slide">
+    <h1>How dare you click NO 😤</h1>
+    <img src="sticker2.png" class="sticker">
+    <p>That button is illegal. Try again.</p>
+    <button onclick="goYes()">Okay okay, show me 😅</button>
+  </div>
+
+  <!-- YES SLIDE (FIXED LAYOUT) -->
+  <div id="yesSlide" class="slide yesLayout">
+
+    <h1 class="yesHeading">Before we go ahead… I need to say something.</h1>
+
+    <div class="yesContent">
+
+        <div class="leftSticker">
+            <img src="sticker3.png" class="sticker">
+        </div>
+
+        <div class="rightCard">
+            <div class="cardInner">
+                <p>
+                  You have no idea how special you are to me.<br>
+                 This is just a small attempt
+                 to celebrate our story
+                 and remind you how much us means to me.<br>
+                 Today and always — I choose you. 🤍
+                </p>
+
+                <!-- ONLY CHANGE IS HERE -->
+                <button onclick="parent.goToStage('memories')">Next ➜</button>
+
+            </div>
+        </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
