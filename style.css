@@ -1,167 +1,137 @@
 body{
-margin:0;
-font-family:'Poppins',sans-serif;
-overflow:hidden;
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  overflow:hidden;
 }
 
 /* Background */
 .background{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:url("bg.jpg") center center / cover no-repeat;
-z-index:-10;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:url("bg.jpg") center center / cover no-repeat;
+  z-index:-1;
 }
 
-/* Sections */
-.section{
-height:100vh;
-display:none;
-position:relative;
-text-align:center;
+/* Slides */
+.slide{
+  height:100vh;
+  width:100%;
+  display:none;
+  position:absolute;
+  top:0;
+  left:0;
+  text-align:center;
 }
 
-.section.active{
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
+.slide.active{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
 }
 
-/* Title */
-.mainTitle{
-font-family:'Dancing Script',cursive;
-font-size:60px;
-color:#ff2f7d;
-margin-bottom:40px;
+/* Heading */
+.heading{
+  font-family:'Dancing Script',cursive;
+  font-size:60px;
+  color:#ff2f7d;
+  margin-bottom:50px;
+  transform:translateY(-40px);
 }
 
 /* Envelope */
-.envelopeImg{
-width:180px;
-cursor:pointer;
-transition:0.4s ease;
+.envelope{
+  width:220px;
+  cursor:pointer;
+  animation:breathing 2s infinite ease-in-out;
 }
 
-.envelopeImg:hover{
-transform:scale(1.1);
+@keyframes breathing{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.08);}
+  100%{transform:scale(1);}
 }
 
-/* Letter Card */
-.letterCard{
-position:absolute;
-background:white;
-width:450px;
-height:450px;
-border-radius:25px;
-padding:50px;
-box-shadow:0 25px 70px rgba(0,0,0,0.25);
-opacity:0;
-transform:scale(0.6);
-transition:0.6s ease;
-display:flex;
-flex-direction:column;
-justify-content:space-between;
+/* White Card */
+.whiteCard{
+  background:white;
+  padding:60px 70px;
+  border-radius:25px;
+  box-shadow:0 25px 70px rgba(0,0,0,0.2);
+  width:700px;
+  max-width:90%;
 }
 
-.letterCard.show{
-opacity:1;
-transform:scale(1);
-}
-
-.letterCard h2{
-font-family:'Playfair Display',serif;
-font-size:28px;
-color:#ff2f7d;
-margin-bottom:20px;
-}
-
+/* Letter */
 .letterCard p{
-font-size:16px;
-line-height:1.8;
-color:#444;
-}
-
-/* Buttons */
-.mainBtn{
-padding:14px 35px;
-border:none;
-border-radius:30px;
-background:#ff2f7d;
-color:white;
-font-size:15px;
-cursor:pointer;
-transition:0.3s;
-}
-
-.mainBtn:hover{
-transform:translateY(-3px);
+  font-family:'Playfair Display',serif;
+  font-size:18px;
+  line-height:1.8;
+  color:#444;
 }
 
 /* Proposal */
-.proposalBox{
-background:white;
-padding:80px;
-border-radius:25px;
-box-shadow:0 25px 70px rgba(0,0,0,0.25);
+.proposalCard h2{
+  font-family:'Dancing Script',cursive;
+  font-size:42px;
+  margin-bottom:20px;
 }
 
-.proposalBox h2{
-font-family:'Playfair Display',serif;
-font-size:32px;
-margin-bottom:40px;
+.proposalCard h3{
+  font-family:'Playfair Display',serif;
+  font-size:26px;
+  margin-bottom:40px;
 }
 
-.proposalBtns button{
-margin:0 20px;
-padding:18px 45px;
-border:none;
-border-radius:30px;
-background:#ff2f7d;
-color:white;
-font-size:18px;
-cursor:pointer;
+/* Buttons */
+.buttonRow{
+  display:flex;
+  gap:30px;
+  justify-content:center;
+}
+
+.btn{
+  padding:15px 40px;
+  font-size:18px;
+  border:none;
+  border-radius:30px;
+  background:#ff2f7d;
+  color:white;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.05);
 }
 
 /* Celebration */
-.celebrationBox{
-display:flex;
-flex-direction:column;
-align-items:center;
+.celebrationSticker{
+  width:320px;
+  margin-bottom:40px;
 }
 
-.sticker{
-width:260px;
-margin-bottom:30px;
-}
-
-.celebrationTitle{
-font-family:'Dancing Script',cursive;
-font-size:65px;
-color:#ff2f7d;
+.celebrationText{
+  font-family:'IM Fell English',serif;
+  font-size:60px;
+  color:#ff2f7d;
 }
 
 /* Confetti */
-#confettiContainer{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-pointer-events:none;
-overflow:hidden;
-}
-
 .confetti{
-position:absolute;
-width:10px;
-height:10px;
-animation:fall 4s linear infinite;
+  position:fixed;
+  width:10px;
+  height:10px;
+  background:red;
+  top:-10px;
+  animation:fall 3s linear infinite;
 }
 
 @keyframes fall{
-0%{transform:translateY(-100px) rotate(0);}
-100%{transform:translateY(100vh) rotate(360deg);}
+  to{
+    transform:translateY(100vh) rotate(360deg);
+  }
 }
