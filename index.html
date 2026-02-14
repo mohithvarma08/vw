@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Forever Valentine</title>
+<title>Forever Valentine ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
@@ -16,52 +16,33 @@
 <!-- ================= LETTER SLIDE ================= -->
 <section id="letterSlide" class="section active">
 
-<h1 class="title">For You 💌</h1>
+<h1 class="mainTitle">For You 💌</h1>
 
-<div class="envelopeWrapper">
-    <div class="envelope" onclick="openLetter()">
-        <div class="flap"></div>
-        <div class="body"></div>
+<div class="letterWrapper">
+    <div class="envelope" onclick="openLetter()">💌</div>
+
+    <div class="letterCard" id="letterCard">
+        <p>
+        You are the calm in my chaos.<br><br>
+        You are the smile I didn’t know I needed.<br><br>
+        Every memory with you feels safe, warm, real.<br><br>
+        And if I had to choose again…<br>
+        I would still choose you. Always. ❤️
+        </p>
+
+        <button class="mainBtn" onclick="goToQuestion()">Continue →</button>
     </div>
-</div>
-
-<button id="openBtn" class="mainBtn" onclick="openLetter()">Open when you need a reminder…</button>
-
-<div id="letterCard" class="letterCard">
-    <p>
-        I don’t think you fully understand how special you are to me.<br><br>
-        You walked into my life so gently…  
-        and somehow became my safest place.<br><br>
-
-        You make ordinary days feel important.  
-        You make chaos feel calm.  
-        You make love feel easy.<br><br>
-
-        I don’t love you only in big moments.  
-        I love you in the quiet ones.  
-        The late-night talks.  
-        The random laughs.<br><br>
-
-        If I had to choose again…  
-        I would still choose you.  
-        Every single time. ❤️
-    </p>
-
-    <button class="mainBtn" onclick="goToQuestion()">Continue →</button>
 </div>
 
 </section>
 
 
-
 <!-- ================= QUESTION SLIDE ================= -->
 <section id="questionSlide" class="section">
 
-<div class="questionBox">
+<div class="questionCard">
     <h2>
-        So after all this…<br>
-        After every memory…<br>
-        After every dream…<br><br>
+        After all this…<br><br>
         Will you be my forever Valentine? ❤️
     </h2>
 
@@ -74,18 +55,15 @@
 </section>
 
 
-
 <!-- ================= CELEBRATION SLIDE ================= -->
 <section id="celebrationSlide" class="section">
 
-<h1 class="celebrateTitle">Happy Valentine’s Day, My Love ❤️</h1>
-
+<h1 class="celebrateTitle">Happy Valentine’s Day ❤️</h1>
 <div class="sticker">🥰💑💖</div>
 
 <canvas id="confettiCanvas"></canvas>
 
 </section>
-
 
 <script src="script.js"></script>
 </body>
