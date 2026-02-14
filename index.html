@@ -1,80 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For You ❤️</title>
 
-<title>Finale</title>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400&family=Playfair+Display:wght@500&family=IM+Fell+English&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <div class="background"></div>
 
-<!-- ================= LETTER SLIDE ================= -->
-<section id="letterSection" class="section active">
-
-<h1 class="mainTitle">For You 💌</h1>
-
-<img src="envelope.png" class="envelopeImg" onclick="openLetter()">
-
-<div class="letterCard" id="letterCard">
-
-<h2>My Favorite Person 🤍</h2>
-
-<p>
-You are not just someone I love…  
-You are the calm in my chaos.  
-
-The smile that fixes my worst days.  
-The voice that feels like home.  
-
-Loving you is easy.  
-Choosing you is natural.  
-
-And no matter what life brings,  
-I want it with you. Always.
-</p>
-
-<button class="mainBtn" onclick="goToProposal()">Continue →</button>
-
-</div>
-
+<!-- ===== LETTER OPENING SLIDE ===== -->
+<section id="letterIntro" class="slide active">
+  <h1 class="heading">For You 💌</h1>
+  <img src="envelope.png" class="envelope" id="openEnvelope">
 </section>
 
-<!-- ================= PROPOSAL ================= -->
-<section id="proposalSection" class="section">
+<!-- ===== LOVE LETTER SLIDE ===== -->
+<section id="loveLetter" class="slide">
+  <div class="whiteCard letterCard">
+    <p>
+      My love,<br><br>
+      You are the calm in my chaos, the warmth in my cold days,  
+      and the smile I never want to stop seeing.<br><br>
+      Loving you feels effortless, natural, and right.  
+      Every memory we’ve created is a treasure to me.  
+      And every dream of the future has you in it.<br><br>
+      You are not just special — you are everything to me. ❤️
+    </p>
 
-<div class="proposalBox">
-<h2>
-After all this…  
-<br><br>
-Will you be my forever Valentine? ❤️
-</h2>
-
-<div class="proposalBtns">
-<button onclick="celebrate()">YES 💖</button>
-<button onclick="celebrate()">ABSOLUTELY YES 💘</button>
-</div>
-
-</div>
-
+    <button class="btn" id="toProposal">Next →</button>
+  </div>
 </section>
 
-<!-- ================= CELEBRATION ================= -->
-<section id="celebrationSection" class="section">
+<!-- ===== PROPOSAL SLIDE ===== -->
+<section id="proposalSlide" class="slide">
+  <div class="whiteCard proposalCard">
+    <h2>After all this...</h2>
+    <h3>Will you be my forever Valentine? ❤️</h3>
 
-<div class="celebrationBox">
-<img src="sticker4.png" class="sticker">
-<h1 class="celebrationTitle">Happy Valentine's Day 💞</h1>
-</div>
+    <div class="buttonRow">
+      <button class="btn" id="yesBtn">YES 💖</button>
+      <button class="btn" id="yesBtn2">ABSOLUTELY YES 💘</button>
+    </div>
+  </div>
+</section>
 
-<div id="confettiContainer"></div>
-
+<!-- ===== CELEBRATION SLIDE ===== -->
+<section id="celebrationSlide" class="slide">
+  <img src="sticker4.png" class="celebrationSticker">
+  <h1 class="celebrationText">Happy Valentines Day 💞</h1>
 </section>
 
 <script src="script.js"></script>
