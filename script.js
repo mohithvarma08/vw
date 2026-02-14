@@ -1,16 +1,6 @@
-window.addEventListener("load", () => {
+// Subtle random tilt for dreamy aesthetic
 
-const images = document.querySelectorAll(".dream");
-
-images.forEach((img, index) => {
-img.style.opacity = "0";
-img.style.transform += " scale(0.95)";
-
-setTimeout(() => {
-img.style.transition = "0.8s ease";
-img.style.opacity = "1";
-img.style.transform = img.style.transform.replace(" scale(0.95)", "");
-}, index * 120);
-});
-
+document.querySelectorAll(".img").forEach((img) => {
+    let randomTilt = (Math.random() * 6 - 3);
+    img.style.transform = `rotate(${randomTilt}deg)`;
 });
