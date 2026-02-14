@@ -1,94 +1,54 @@
-/* Animate curve */
-const path = document.getElementById("curvePath");
+/* Curve animation */
+const path = document.getElementById("path");
 const length = path.getTotalLength();
+
 path.style.strokeDasharray = length;
 path.style.strokeDashoffset = length;
 
 window.onload = () => {
 
-setTimeout(()=>{
-path.style.transition="stroke-dashoffset 3s ease";
-path.style.strokeDashoffset=0;
-},300);
+path.style.transition = "stroke-dashoffset 2.5s ease";
+path.style.strokeDashoffset = 0;
 
 /* Reveal events */
-const events=document.querySelectorAll(".event");
+const events = document.querySelectorAll(".event");
+
 events.forEach((el,i)=>{
 setTimeout(()=>{
 el.classList.add("show");
-},1000 + i*200);
+},800 + i*250);
 });
 };
 
-/* Continue */
+/* Quiz */
 function showQuiz(){
 document.getElementById("timelineSection").style.display="none";
 document.getElementById("quizSection").style.display="block";
-loadQuestion();
+loadQ();
 }
 
-/* Quiz Data */
 const quiz=[
-{
-q:"Who fell first?",
-a:"Chinnu",
-b:"Subbu",
-r:"Yes… it was me. And I’d fall again. 🫶"
-},
-{
-q:"Who gets jealous faster?",
-a:"Chinnu",
-b:"Subbu",
-r:"Hmm… we both know the truth. 👀"
-},
-{
-q:"Who misses the other more?",
-a:"Chinnu",
-b:"Subbu",
-r:"Honestly… it’s a competition. 🥹"
-},
-{
-q:"Who overthinks more?",
-a:"Chinnu",
-b:"Subbu",
-r:"It’s okay. You rule my thoughts!"
-},
-{
-q:"Who would get more clingy after marriage?",
-a:"Chinnu",
-b:"Subbu",
-r:"We both won’t complain. 😏"
-},
-{
-q:"Who imagines our future more?",
-a:"Chinnu",
-b:"Subbu",
-r:"I already see it. 💍"
-},
-{
-q:"Who chooses the other every single day?",
-a:"Both",
-b:"",
-r:"I choose you. Every single day. Without doubt. 🤍"
-}
+{q:"Who fell first?",a:"Chinnu",b:"Subbu",r:"It was me. And I’d fall again."},
+{q:"Who gets jealous faster?",a:"Chinnu",b:"Subbu",r:"We both know the truth."},
+{q:"Who chooses the other every single day?",a:"Both",b:"",r:"I choose you. Every single day. 🤍"}
 ];
 
-let current=0;
+let index=0;
 
-function loadQuestion(){
-document.getElementById("question").innerText=quiz[current].q;
-document.getElementById("optA").innerText=quiz[current].a;
-document.getElementById("optB").innerText=quiz[current].b;
+function loadQ(){
+document.getElementById("question").innerText=quiz[index].q;
+document.getElementById("optA").innerText=quiz[index].a;
+document.getElementById("optB").innerText=quiz[index].b;
 document.getElementById("reaction").innerText="";
 }
 
-function selectAnswer(){
-document.getElementById("reaction").innerText=quiz[current].r;
+function answer(){
+document.getElementById("reaction").innerText=quiz[index].r;
 
 setTimeout(()=>{
-current++;
-if(current<quiz.length){
-loadQuestion();
+index++;
+if(index<quiz.length){
+loadQ();
 }
 },2250);
 }
