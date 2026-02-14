@@ -103,10 +103,30 @@ h1{
 }
 
 .fullscreen-content{
-    max-width:90%;
-    max-height:90%;
+    width:75vmin;              /* 75% of smaller viewport side */
+    height:75vmin;             /* keeps perfect square */
+    max-width:75vw;
+    max-height:75vh;
     animation:zoomIn .4s ease forwards;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
+
+.fullscreen-content .polaroid-inner{
+    width:100%;
+    height:100%;
+    transform:rotate(0deg) !important;  /* remove tilt */
+    display:flex;
+    flex-direction:column;
+}
+
+.fullscreen-content img{
+    width:100%;
+    height:100%;
+    object-fit:cover;          /* keeps 1:1 clean */
+}
+
 
 @keyframes zoomIn{
     from{ transform:scale(.7); opacity:0; }
@@ -124,3 +144,4 @@ h1{
         grid-template-columns:1fr;
     }
 }
+
