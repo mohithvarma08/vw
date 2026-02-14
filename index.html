@@ -3,32 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stage 2</title>
+
+<title>Our Story</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div class="background"></div>
+<div class="bg"></div>
 
-<!-- ================= TIMELINE ================= -->
+<section id="timelineSection">
 
-<section id="timelineSection" class="timelineSection">
+<h1 class="title">Our Story</h1>
 
-<h1 class="mainTitle">Our Story</h1>
+<div class="timeline">
 
-<div class="timelineWrapper">
-
-<svg class="timelineSVG" viewBox="0 0 200 3000" preserveAspectRatio="none">
-<path id="curvePath"
+<svg class="curve" viewBox="0 0 200 2000">
+<path id="path"
 d="M100 0
-C 180 250, 20 500, 100 750
-C 180 1000, 20 1250, 100 1500
-C 180 1750, 20 2000, 100 2250
-C 180 2500, 20 2750, 100 3000"/>
+C 160 200, 40 400, 100 600
+C 160 800, 40 1000, 100 1200
+C 160 1400, 40 1600, 100 1800
+C 160 2000, 40 2200, 100 2400"/>
 </svg>
 
 <div class="events">
@@ -40,7 +38,7 @@ C 180 2500, 20 2750, 100 3000"/>
 
 <div class="event right">
 <h3><span>18 Aug 2024</span> — The Almost Meet</h3>
-<p>We didn’t meet. But we looked for each other in the crowd. A wave from a distance… and something soft began.</p>
+<p>We didn’t meet. But we looked for each other in the crowd.</p>
 </div>
 
 <div class="event left">
@@ -50,84 +48,36 @@ C 180 2500, 20 2750, 100 3000"/>
 
 <div class="event right">
 <h3><span>16 Sept 2024</span> — The Shy First Meet</h3>
-<p>Festival lights. Quiet smiles. Few words… but unforgettable.</p>
+<p>Festival lights. Quiet smiles. Few words… unforgettable.</p>
 </div>
 
 <div class="event left">
 <h3><span>20 Sept 2024</span> — The Yes</h3>
-<p>Feelings turned into courage. I asked. You said yes. And life changed.</p>
+<p>Feelings turned into courage. You said yes.</p>
 </div>
 
 <div class="event right">
-<h3><span>21 Sept 2024</span> — Everything Felt Different</h3>
-<p>Your dance. The metro ride. The first real heart-to-heart. The day “us” became deeper.</p>
-</div>
-
-<div class="event left">
 <h3><span>22 Oct 2024</span> — Our First Movie</h3>
-<p>Side by side. Favorite actor on screen. But you were my favorite scene.</p>
-</div>
-
-<div class="event right">
-<h3><span>15 Nov 2024</span> — Our First Frame</h3>
-<p>Our first picture together. A ring that stayed. A memory that never will fade.</p>
-</div>
-
-<div class="event left">
-<h3><span>28 Dec 2024</span> — Our First Official Date</h3>
-<p>Just us. Walking, talking, laughing. The beginning of “us time.”</p>
-</div>
-
-<div class="event right">
-<h3><span>13 May 2025</span> — The Gentle First Kiss</h3>
-<p>A quiet farm. Soft moments. A kiss on your palm — simple, but unforgettable.</p>
-</div>
-
-<div class="event left">
-<h3><span>17 May 2025</span> — Prayers Together</h3>
-<p>Our first temple visit. Side by side. Grateful for what we found in each other.</p>
-</div>
-
-<div class="event right">
-<h3><span>8 Aug 2025</span> — Home</h3>
-<p>My birthday. Your surprise. The first time you stepped into my world.</p>
-</div>
-
-<div class="event left">
-<h3><span>27 Aug 2025</span> — The Hug We Needed</h3>
-<p>After missing you too much, that first hug said everything words couldn’t.</p>
-</div>
-
-<div class="event right">
-<h3><span>20 Sept 2025</span> — One Year of Us</h3>
-<p>365 days of choosing each other. Still choosing. Still sure.</p>
-</div>
-
-<div class="event left">
-<h3><span>27–29 Oct 2025</span> — Growing Stronger</h3>
-<p>Our first misunderstanding. Not the end — but proof that we choose to stay.</p>
+<p>Side by side. But you were my favorite scene.</p>
 </div>
 
 </div>
 </div>
 
-<button class="continueBtn" onclick="showQuiz()">Continue →</button>
+<button class="continue" onclick="showQuiz()">Continue →</button>
 
 </section>
 
-<!-- ================= QUIZ ================= -->
+<section id="quizSection" style="display:none">
 
-<section id="quizSection" class="quizSection">
-
-<h1 class="mainTitle">Chinnu or Subbu 💞</h1>
+<h1 class="title">Chinnu or Subbu 💞</h1>
 
 <div class="quizCard">
-
 <h2 id="question"></h2>
 
 <div class="options">
-<button onclick="selectAnswer('a')" id="optA"></button>
-<button onclick="selectAnswer('b')" id="optB"></button>
+<button id="optA" onclick="answer()"></button>
+<button id="optB" onclick="answer()"></button>
 </div>
 
 <div id="reaction" class="reaction"></div>
