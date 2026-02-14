@@ -1,104 +1,94 @@
-// Timeline animation
-const items = document.querySelectorAll(".timeline-item");
+// Scroll reveal
+const events = document.querySelectorAll('.event');
 
 const observer = new IntersectionObserver(entries=>{
 entries.forEach(entry=>{
 if(entry.isIntersecting){
-entry.target.classList.add("show");
+entry.target.classList.add('show');
 }
 });
-},{threshold:0.2});
+},{threshold:0.3});
 
-items.forEach(item=>observer.observe(item));
-
-
-// Continue button
-const continueBtn = document.getElementById("continueBtn");
-const timelineSection = document.getElementById("timeline");
-const quizSection = document.getElementById("quiz");
-
-continueBtn.addEventListener("click",()=>{
-timelineSection.style.opacity="0";
-setTimeout(()=>{
-timelineSection.style.display="none";
-quizSection.classList.remove("hidden");
-quizSection.style.opacity="1";
-},600);
-});
+events.forEach(event=>observer.observe(event));
 
 
-// Quiz Logic
-const quizData = [
+// Transition to quiz
+document.getElementById("toQuiz").onclick = ()=>{
+document.getElementById("timelineSlide").classList.remove("active");
+document.getElementById("quizSlide").classList.add("active");
+window.scrollTo(0,0);
+};
+
+
+// QUIZ
+
+const questions = [
 {
-question:"Who fell first?",
+q:"Who fell first?",
 options:["Chinnu","Subbu"],
 reaction:"Yes… it was me. And I’d fall again. 🫶"
 },
 {
-question:"Who gets jealous faster?",
+q:"Who gets jealous faster?",
 options:["Chinnu","Subbu"],
-reactionChoice:{
+reaction:{
 Chinnu:"Hmm… we both know the truth. 👀",
 Subbu:"Correct. But it’s kind of cute. 😌"
 }
 },
 {
-question:"Who misses the other more?",
+q:"Who misses the other more?",
 options:["Chinnu","Subbu"],
 reaction:"Honestly… it’s a competition. 🥹"
 },
 {
-question:"Who overthinks more?",
+q:"Who overthinks more?",
 options:["Chinnu","Subbu"],
 reaction:"It’s okay. You rule my thoughts!"
 },
 {
-question:"Who would get more clingy after marriage?",
+q:"Who would get more clingy after marriage?",
 options:["Chinnu","Subbu"],
 reaction:"We both won’t complain. 😏"
 },
 {
-question:"Who imagines our future more?",
+q:"Who imagines our future more?",
 options:["Chinnu","Subbu"],
 reaction:"I already see it. 💍"
 },
 {
-question:"Who chooses the other every single day?",
+q:"Who chooses the other every single day?",
 options:["Both"],
 reaction:"I choose you. Every single day. Without doubt. 🤍"
 }
 ];
 
-let current=0;
-
-const questionEl=document.getElementById("question");
-const optionsEl=document.getElementById("options");
-const reactionEl=document.getElementById("reaction");
+let current = 0;
 
 function loadQuestion(){
-reactionEl.textContent="";
-optionsEl.innerHTML="";
-const q=quizData[current];
-questionEl.textContent=q.question;
+const q = questions[current];
+document.getElementById("question").innerHTML = `<h3>${q.q}</h3>`;
+const optionsDiv = document.getElementById("options");
+optionsDiv.innerHTML = "";
+document.getElementById("reaction").innerHTML = "";
 
 q.options.forEach(opt=>{
-const btn=document.createElement("button");
-btn.textContent=opt;
-btn.onclick=()=>{
-if(q.reactionChoice){
-reactionEl.textContent=q.reactionChoice[opt];
+let btn = document.createElement("button");
+btn.innerText = opt;
+btn.onclick = ()=>{
+if(typeof q.reaction === "object"){
+document.getElementById("reaction").innerText = q.reaction[opt];
 }else{
-reactionEl.textContent=q.reaction;
+document.getElementById("reaction").innerText = q.reaction;
 }
-
 setTimeout(()=>{
 current++;
-if(current<quizData.length){
+if(current < questions.length){
 loadQuestion();
 }
-},1800);
+},1600);
 };
-optionsEl.appendChild(btn);
+optionsDiv.appendChild(btn);
 });
 }
 
