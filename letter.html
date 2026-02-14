@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For You ❤️</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400&family=Playfair+Display:wght@500&family=IM+Fell+English&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="background"></div>
+
+<!-- ===== LETTER OPENING SLIDE ===== -->
+<section id="letterIntro" class="slide active">
+  <h1 class="heading">For You 💌</h1>
+  <img src="envelope.png" class="envelope" id="openEnvelope">
+</section>
+
+<!-- ===== LOVE LETTER SLIDE ===== -->
+<section id="loveLetter" class="slide">
+  <div class="whiteCard letterCard">
+    <p>
+      My love,<br><br>
+      You are the calm in my chaos, the warmth in my cold days,  
+      and the smile I never want to stop seeing.<br><br>
+      Loving you feels effortless, natural, and right.  
+      Every memory we’ve created is a treasure to me.  
+      And every dream of the future has you in it.<br><br>
+      You are not just special — you are everything to me. ❤️
+    </p>
+
+    <button class="btn" id="toProposal">Next →</button>
+  </div>
+</section>
+
+<!-- ===== PROPOSAL SLIDE ===== -->
+<section id="proposalSlide" class="slide">
+  <div class="whiteCard proposalCard">
+    <h2>After all this...</h2>
+    <h3>Will you be my forever Valentine? ❤️</h3>
+
+    <div class="buttonRow">
+      <button class="btn" id="yesBtn">YES 💖</button>
+      <button class="btn" id="yesBtn2">ABSOLUTELY YES 💘</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CELEBRATION SLIDE ===== -->
+<section id="celebrationSlide" class="slide">
+  <img src="sticker4.png" class="celebrationSticker">
+  <h1 class="celebrationText">Happy Valentines Day 💞</h1>
+</section>
+
+<script>
+
+/* ORIGINAL BEHAVIOR PRESERVED */
+
+function showSlide(id){
+  document.querySelectorAll(".slide").forEach(s=>s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+
+/* Envelope click */
+document.getElementById("openEnvelope").onclick = function(){
+  showSlide("loveLetter");
+};
+
+/* To Proposal */
+document.getElementById("toProposal").onclick = function(){
+  showSlide("proposalSlide");
+};
+
+/* Yes buttons */
+document.getElementById("yesBtn").onclick = celebrate;
+document.getElementById("yesBtn2").onclick = celebrate;
+
+function celebrate(){
+  showSlide("celebrationSlide");
+  launchConfetti();
+}
+
+/* Confetti */
+function launchConfetti(){
+  for(let i=0;i<80;i++){
+    let confetti=document.createElement("div");
+    confetti.className="confetti";
+    confetti.style.left=Math.random()*100+"vw";
+    confetti.style.background=["#ff2f7d","#ff8fab","#ffffff"][Math.floor(Math.random()*3)];
+    confetti.style.animationDuration=(Math.random()*2+2)+"s";
+    document.body.appendChild(confetti);
+
+    setTimeout(()=>confetti.remove(),3000);
+  }
+}
+
+</script>
+
+</body>
+</html>
