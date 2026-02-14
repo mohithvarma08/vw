@@ -18,68 +18,63 @@ z-index:-10;
 width:100%;
 height:100vh;
 display:none;
-position:relative;
 text-align:center;
-padding-top:100px;
+position:relative;
 }
 
 .section.active{
-display:block;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 }
 
-/* ===== TITLE ===== */
-
-.title{
+/* TITLE */
+.mainTitle{
 font-family:'Dancing Script',cursive;
 font-size:60px;
 color:#ff2f7d;
 margin-bottom:40px;
 }
 
-/* ===== ENVELOPE ===== */
-
-.envelopeWrapper{
-display:flex;
-justify-content:center;
-margin-top:40px;
-}
-
+/* LETTER */
 .envelope{
-width:200px;
-height:140px;
-position:relative;
+font-size:90px;
 cursor:pointer;
+animation:pulse 1.5s infinite;
 }
 
-.body{
-width:100%;
-height:100%;
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.1);}
+100%{transform:scale(1);}
+}
+
+.letterCard{
+display:none;
+width:60%;
+max-width:700px;
 background:white;
-border-radius:8px;
-box-shadow:0 10px 40px rgba(0,0,0,0.2);
-position:absolute;
-bottom:0;
+padding:50px;
+border-radius:20px;
+box-shadow:0 20px 60px rgba(0,0,0,0.2);
+animation:fadeIn 1s ease forwards;
 }
 
-.flap{
-width:100%;
-height:100%;
-background:#ff2f7d;
-clip-path:polygon(0 0, 50% 60%, 100% 0);
-position:absolute;
-top:0;
-transition:0.8s;
-transform-origin:top;
+.letterCard p{
+font-family:'Playfair Display',serif;
+font-size:18px;
+line-height:1.8;
 }
 
-.envelope.open .flap{
-transform:rotateX(180deg);
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
 }
 
-/* ===== BUTTON ===== */
-
+/* BUTTON */
 .mainBtn{
-margin-top:40px;
+margin-top:30px;
 padding:14px 35px;
 font-size:16px;
 border:none;
@@ -89,43 +84,17 @@ color:white;
 cursor:pointer;
 }
 
-/* ===== LETTER CARD ===== */
-
-.letterCard{
-width:60%;
-margin:40px auto;
-background:white;
-padding:50px;
-border-radius:20px;
-box-shadow:0 20px 60px rgba(0,0,0,0.2);
-display:none;
-animation:fadeIn 1s ease forwards;
-}
-
-.letterCard p{
-font-family:'Playfair Display',serif;
-font-size:18px;
-line-height:1.8;
-color:#333;
-}
-
-@keyframes fadeIn{
-from{opacity:0;transform:translateY(20px);}
-to{opacity:1;transform:translateY(0);}
-}
-
-/* ===== QUESTION ===== */
-
-.questionBox{
+/* QUESTION */
+.questionCard{
 width:65%;
-margin:150px auto;
+max-width:750px;
 background:white;
 padding:70px;
 border-radius:25px;
 box-shadow:0 20px 60px rgba(0,0,0,0.2);
 }
 
-.questionBox h2{
+.questionCard h2{
 font-family:'Playfair Display',serif;
 font-size:30px;
 }
@@ -147,19 +116,17 @@ color:white;
 cursor:pointer;
 }
 
-/* ===== CELEBRATION ===== */
-
+/* CELEBRATION */
 .celebrateTitle{
 font-family:'Dancing Script',cursive;
 font-size:70px;
 color:#ff2f7d;
-margin-top:200px;
 }
 
 .sticker{
 font-size:70px;
-margin-top:30px;
-animation:pop 1s ease infinite alternate;
+margin-top:20px;
+animation:pop 1s infinite alternate;
 }
 
 @keyframes pop{
