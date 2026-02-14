@@ -3,96 +3,97 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stage 2</title>
+<title>Our Story</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Crimson+Text:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Crimson+Text:wght@600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <div class="app">
-    <img src="bg.jpg" class="bg">
+    <img src="background.jpg" class="bg">
 
-    <!-- ================= SLIDE 5 TIMELINE ================= -->
-    <section class="timeline-section">
-        <h1>Our Story</h1>
+    <!-- ================= TIMELINE ================= -->
+    <section class="timeline-section" id="timeline">
+
+        <h1 class="section-title">Our Story</h1>
 
         <div class="timeline">
 
-            <!-- ITEM TEMPLATE -->
-            <div class="timelineItem left">
+            <!-- Repeat Structure -->
+            <div class="timeline-item left">
                 <div class="emoji">📷</div>
-                <div class="card">
-                    <h3>20 Nov 2022 — The Spy Snap</h3>
+                <div class="timeline-card">
+                    <h3>
+                        <span class="date">20 Nov 2022</span>
+                        <span class="dash"> — </span>
+                        <span class="title">The Spy Snap</span>
+                    </h3>
                     <p>A random picture from afar. A small message. The first spark — before we even knew it was one.</p>
                 </div>
             </div>
 
-            <div class="timelineItem right">
+            <div class="timeline-item right">
                 <div class="emoji">😊</div>
-                <div class="card">
-                    <h3>18 Aug 2024 — The Almost Meet</h3>
+                <div class="timeline-card">
+                    <h3>
+                        <span class="date">18 Aug 2024</span>
+                        <span class="dash"> — </span>
+                        <span class="title">The Almost Meet</span>
+                    </h3>
                     <p>We didn’t meet. But we looked for each other in the crowd. A wave from a distance… and something soft began.</p>
                 </div>
             </div>
 
-            <div class="timelineItem left">
+            <div class="timeline-item left">
                 <div class="emoji">📱</div>
-                <div class="card">
-                    <h3>31 Aug 2024 — From Chats to Calls</h3>
+                <div class="timeline-card">
+                    <h3>
+                        <span class="date">31 Aug 2024</span>
+                        <span class="dash"> — </span>
+                        <span class="title">From Chats to Calls</span>
+                    </h3>
                     <p>No more just usernames. Numbers exchanged. The connection became real.</p>
                 </div>
             </div>
 
-            <div class="timelineItem right">
-                <div class="emoji">💕</div>
-                <div class="card">
-                    <h3>16 Sept 2024 — The Shy First Meet</h3>
-                    <p>Quiet smiles. Few words… but unforgettable.</p>
-                </div>
-            </div>
-
-            <div class="timelineItem left">
+            <div class="timeline-item right">
                 <div class="emoji">💍</div>
-                <div class="card">
-                    <h3>20 Sept 2024 — The Yes</h3>
+                <div class="timeline-card">
+                    <h3>
+                        <span class="date">20 Sept 2024</span>
+                        <span class="dash"> — </span>
+                        <span class="title">The Yes</span>
+                    </h3>
                     <p>Feelings turned into courage. I asked. You said yes. And life changed.</p>
                 </div>
             </div>
 
-            <div class="timelineItem right">
-                <div class="emoji">🌧</div>
-                <div class="card">
-                    <h3>27–29 Oct 2025 — Growing Stronger</h3>
-                    <p>Our first misunderstanding. Not the end — but proof that we choose to stay.</p>
-                </div>
-            </div>
-
         </div>
 
-        <div class="timelineEnd">
-            And this is just the beginning…
-            <div class="lineGrow"></div>
+        <div class="timeline-end">
+            <h2>And this is just the beginning…</h2>
+            <div class="line-grow"></div>
+            <button id="continueBtn" class="continue-btn">Continue ➜</button>
         </div>
+
     </section>
 
-    <!-- ================= SLIDE 6 QUIZ ================= -->
-    <section class="quizSection">
 
-        <h1>💞 Chinnu or Subbu 💞</h1>
+    <!-- ================= QUIZ ================= -->
+    <section class="quiz-section hidden" id="quiz">
 
-        <div class="quizCard">
+        <h1 class="section-title">💞 Chinnu or Subbu 💞</h1>
 
-            <div id="question"></div>
+        <div class="quiz-card">
 
-            <div id="options"></div>
-
-            <div id="reaction" class="reaction"></div>
-
-            <button id="nextBtn" class="nextBtn">Next ➜</button>
+            <div id="question" class="quiz-question"></div>
+            <div id="options" class="quiz-options"></div>
+            <div id="reaction" class="quiz-reaction"></div>
 
         </div>
+
     </section>
 
 </div>
@@ -100,4 +101,3 @@
 <script src="script.js"></script>
 </body>
 </html>
-
