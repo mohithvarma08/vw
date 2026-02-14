@@ -5,67 +5,60 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Stage 2</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="background"></div>
+<div class="app">
+    <img src="bg.jpg" class="bg">
 
-<!-- ================= TIMELINE SLIDE ================= -->
+    <!-- TIMELINE -->
+    <section id="timelineSlide" class="slide active">
 
-<section id="timelineSlide" class="slide active">
+        <h1>Our Story</h1>
 
-<h1 class="mainTitle">Our Story</h1>
+        <div class="timelineWrapper">
+            <svg viewBox="0 0 600 1200" class="curve">
+                <path id="timelinePath"
+                    d="M300 50
+                       C200 200, 400 350, 300 500
+                       C200 650, 400 800, 300 950"
+                    fill="none"
+                    stroke="#ff4f8b"
+                    stroke-width="4"
+                    stroke-linecap="round"/>
+            </svg>
 
-<div class="timelineContainer">
+            <div class="events">
+                <!-- JS inserts events -->
+            </div>
+        </div>
 
-<svg class="curve" viewBox="0 0 600 2200" preserveAspectRatio="none">
-<path id="timelinePath"
-d="M300 0 
-C 420 150, 180 300, 300 450
-C 420 600, 180 750, 300 900
-C 420 1050, 180 1200, 300 1350
-C 420 1500, 180 1650, 300 1800
-C 420 1950, 300 2100, 300 2200"
-fill="none"
-stroke="#ff4f9a"
-stroke-width="4"
-stroke-linecap="round"/>
-</svg>
+        <button id="toQuiz" class="primaryBtn">Continue ➜</button>
 
-<div class="events">
-
-</div>
-
-</div>
-
-<div class="timelineEnd">
-<p>And this is just the beginning…</p>
-<button id="toQuiz">Continue ➜</button>
-</div>
-
-</section>
+    </section>
 
 
-<!-- ================= QUIZ SLIDE ================= -->
+    <!-- QUIZ -->
+    <section id="quizSlide" class="slide">
 
-<section id="quizSlide" class="slide">
+        <h1>Chinnu or Subbu 💞</h1>
 
-<h1 class="quizTitle">💞 Chinnu or Subbu 💞</h1>
+        <div class="quizCard">
 
-<div class="quizCard">
+            <div id="question" class="question"></div>
 
-<h2 id="question"></h2>
+            <div id="options" class="options"></div>
 
-<div id="options"></div>
+            <div id="reaction" class="reaction"></div>
 
-<p id="reaction"></p>
+        </div>
+
+    </section>
 
 </div>
-
-</section>
 
 <script src="script.js"></script>
 </body>
