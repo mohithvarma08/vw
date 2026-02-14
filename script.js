@@ -1,31 +1,54 @@
-/* Curve animation */
-const path = document.getElementById("path");
-const length = path.getTotalLength();
+window.addEventListener("load", ()=>{
 
-path.style.strokeDasharray = length;
-path.style.strokeDashoffset = length;
+    const events = document.querySelectorAll(".event");
+    const container = document.getElementById("eventsContainer");
+    const svg = document.getElementById("curveSvg");
+    const path = document.getElementById("path");
 
-window.onload = () => {
+    const totalHeight = container.offsetHeight;
 
-path.style.transition = "stroke-dashoffset 2.5s ease";
-path.style.strokeDashoffset = 0;
+    svg.setAttribute("height", totalHeight);
+    svg.setAttribute("viewBox", `0 0 200 ${totalHeight}`);
 
-/* Reveal events */
-const events = document.querySelectorAll(".event");
+    // Generate dynamic smooth curve based on height
+    let d = `M100 0 `;
+    let step = totalHeight / 8;
+    let direction = 1;
 
-events.forEach((el,i)=>{
-setTimeout(()=>{
-el.classList.add("show");
-},800 + i*250);
+    for(let i=0;i<8;i++){
+        let y1 = step*i;
+        let y2 = step*(i+1);
+        let controlX = direction ? 160 : 40;
+        d += `C ${controlX} ${y1+step/2}, ${controlX} ${y2-step/2}, 100 ${y2} `;
+        direction = !direction;
+    }
+
+    path.setAttribute("d", d);
+
+    const length = path.getTotalLength();
+    path.style.strokeDasharray = length;
+    path.style.strokeDashoffset = length;
+
+    path.style.transition = "stroke-dashoffset 2.5s ease";
+    path.style.strokeDashoffset = 0;
+
+    events.forEach((el,i)=>{
+        setTimeout(()=>{
+            el.classList.add("show");
+        },800 + i*200);
+    });
+
 });
-};
 
-/* Quiz */
+
 function showQuiz(){
-document.getElementById("timelineSection").style.display="none";
-document.getElementById("quizSection").style.display="block";
-loadQ();
+    document.getElementById("timelineSection").style.display="none";
+    document.getElementById("quizSection").style.display="block";
+    loadQ();
 }
+
+
+/* QUIZ */
 
 const quiz=[
 {q:"Who fell first?",a:"Chinnu",b:"Subbu",r:"It was me. And I’d fall again."},
