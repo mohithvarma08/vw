@@ -1,126 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Memories</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Crimson+Text:wght@600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="stage2.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- ================= SLIDE 4 – MEMORIES ================= -->
+<div class="bg-overlay"></div>
+<img src="bg.jpg" class="bg">
 
-<section class="memories">
+<section class="memories-section">
+    <h1>Some of our favorite memories</h1>
 
-<h1>Some of our favorite memories</h1>
+    <div class="polaroid-grid">
 
-<div class="polaroidGrid">
+        <!-- POLAROID TEMPLATE -->
+        <div class="polaroid">
+            <div class="polaroid-inner">
+                <img src="photo1.jpg">
+                <div class="caption">Our first cute selfie ✨</div>
+            </div>
+        </div>
 
-  <!-- Repeat for 9 photos -->
-  <div class="polaroid">
-    <img src="photo1.jpg">
-    <div class="caption">Edit this caption ❤️</div>
-  </div>
+        <div class="polaroid">
+            <div class="polaroid-inner">
+                <img src="photo2.jpg">
+                <div class="caption">That night we laughed too much 🥹</div>
+            </div>
+        </div>
 
-  <div class="polaroid">
-    <img src="photo2.jpg">
-    <div class="caption">Edit this caption ❤️</div>
-  </div>
+        <div class="polaroid">
+            <div class="polaroid-inner">
+                <img src="photo3.jpg">
+                <div class="caption">You looking unreal 💕</div>
+            </div>
+        </div>
 
-  <div class="polaroid">
-    <img src="photo3.jpg">
-    <div class="caption">Edit this caption ❤️</div>
-  </div>
+        <div class="polaroid">
+            <div class="polaroid-inner">
+                <img src="photo4.jpg">
+                <div class="caption">My favorite memory</div>
+            </div>
+        </div>
 
-  <div class="polaroid">
-    <img src="photo4.jpg">
-    <div class="caption">Edit this caption ❤️</div>
-  </div>
+        <div class="polaroid">
+            <div class="polaroid-inner">
+                <img src="photo5.jpg">
+                <div class="caption">Us being chaos 😌</div>
+            </div>
+        </div>
 
-  <div class="polaroid">
-    <img src="photo5.jpg">
-    <div class="caption">Edit this caption ❤️</div>
-  </div>
+        <div class="polaroid">
+            <div class="polaroid-inner">
+                <img src="photo6.jpg">
+                <div class="caption">Soft moments 🤍</div>
+            </div>
+        </div>
 
-  <div class="polaroid">
-    <img src="photo6.jpg">
-    <div class="caption">Edit this caption ❤️</div>
-  </div>
+        <div class="polaroid">
+            <div class="polaroid-inner">
+                <img src="photo7.jpg">
+                <div class="caption">Still obsessed</div>
+            </div>
+        </div>
 
-  <div class="polaroid">
-    <img src="photo7.jpg">
-    <div class="caption">Edit this caption ❤️</div>
-  </div>
+        <div class="polaroid">
+            <div class="polaroid-inner">
+                <img src="photo8.jpg">
+                <div class="caption">Our world</div>
+            </div>
+        </div>
 
-  <div class="polaroid">
-    <img src="photo8.jpg">
-    <div class="caption">Edit this caption ❤️</div>
-  </div>
+        <div class="polaroid">
+            <div class="polaroid-inner">
+                <img src="photo9.jpg">
+                <div class="caption">Forever energy 💍</div>
+            </div>
+        </div>
 
-  <div class="polaroid">
-    <img src="photo9.jpg">
-    <div class="caption">Edit this caption ❤️</div>
-  </div>
-
-</div>
-</section>
-
-
-<!-- ================= SLIDE 5 – TIMELINE ================= -->
-
-<section class="timeline">
-
-<h1>Our Story</h1>
-
-<div class="timelineLine"></div>
-
-<div class="timelineContainer">
-
-  <!-- Example milestone (repeat pattern alternating left/right) -->
-
-  <div class="timelineItem left">
-    <div class="emoji">📷</div>
-    <div class="content">
-      <h3>20 Nov 2022</h3>
-      <p>“That random spy snap…”<br>A message that meant nothing then… but everything now.</p>
     </div>
-  </div>
-
-  <div class="timelineItem right">
-    <div class="emoji">😊</div>
-    <div class="content">
-      <h3>18 Aug 2024</h3>
-      <p>First Interaction<br>The day we properly started talking.</p>
-    </div>
-  </div>
-
-  <!-- Continue adding remaining milestones exactly same structure -->
-
-</div>
-
-<div class="timelineEnd">
-  <h2>And this is just the beginning…</h2>
-  <div class="lineExtend"></div>
-</div>
-
 </section>
 
-
-<!-- ================= SLIDE 6 – QUIZ ================= -->
-
-<section class="quiz">
-
-<div class="quizCard">
-
-  <div id="question"></div>
-  <div id="options"></div>
-  <div id="reaction"></div>
-  <button id="nextBtn" style="display:none;">Next ➜</button>
-
+<div class="fullscreen-view hidden">
+    <div class="fullscreen-content"></div>
 </div>
 
-</section>
-
-<script src="stage2.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
