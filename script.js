@@ -1,11 +1,15 @@
-window.onload = function(){
+// Soft entrance animation
+window.addEventListener("load", () => {
+const images = document.querySelectorAll(".dream");
 
-    const images = document.querySelectorAll(".dream");
+images.forEach((img, index) => {
+img.style.opacity = "0";
+img.style.transform += " scale(0.9)";
 
-    images.forEach((img, index) => {
-        setTimeout(()=>{
-            img.classList.add("show");
-        }, index * 180);
-    });
-
-};
+setTimeout(() => {
+img.style.transition = "0.8s ease";
+img.style.opacity = "1";
+img.style.transform = img.style.transform.replace(" scale(0.9)", "");
+}, index * 150);
+});
+});
