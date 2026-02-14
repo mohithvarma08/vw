@@ -6,30 +6,90 @@
 <title>Our Story ❤️</title>
 
 <style>
-    html, body {
-        margin:0;
-        padding:0;
-        height:100%;
-        overflow:hidden;
-        background:black;
-    }
+html, body {
+    margin:0;
+    padding:0;
+    height:100%;
+    overflow:hidden;
+    background:black;
+}
 
-    #stageFrame {
-        width:100vw;
-        height:100vh;
-        border:none;
-    }
+/* Iframe container */
+#stageFrame {
+    width:100vw;
+    height:100vh;
+    border:none;
+    opacity:1;
+    transition:opacity 0.6s ease;
+}
+
+/* Fade effect */
+.fade-out {
+    opacity:0;
+}
+
+/* Soft loader overlay */
+#loader {
+    position:fixed;
+    inset:0;
+    background:linear-gradient(135deg,#ff2f7d,#ff8fab);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    transition:opacity 0.6s ease;
+}
+
+#loader.hidden {
+    opacity:0;
+    pointer-events:none;
+}
+
+.loader-heart {
+    font-size:60px;
+    animation:pulse 1.2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform:scale(1); }
+    50% { transform:scale(1.2); }
+    100% { transform:scale(1); }
+}
 </style>
 </head>
 
 <body>
 
+<!-- Persistent Music -->
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Loader -->
+<div id="loader">
+    <div class="loader-heart">❤️</div>
+</div>
+
+<!-- Stage Frame -->
 <iframe id="stageFrame" src="intro.html"></iframe>
 
 <script>
-    const frame = document.getElementById("stageFrame");
+const frame = document.getElementById("stageFrame");
+const loader = document.getElementById("loader");
+const music = document.getElementById("bgMusic");
 
-    function goToStage(stageName){
+/* Start music only once after user interaction */
+document.body.addEventListener("pointerdown",()=>{
+    music.play().catch(()=>{});
+},{once:true});
+
+/* Smooth Stage Switch */
+function goToStage(stageName){
+
+    loader.classList.remove("hidden");
+    frame.classList.add("fade-out");
+
+    setTimeout(()=>{
         switch(stageName){
             case "intro":
                 frame.src = "intro.html";
@@ -47,9 +107,26 @@
                 frame.src = "letter.html";
                 break;
         }
-    }
+    },400);
 
-    window.goToStage = goToStage;
+}
+
+/* When new stage loads */
+frame.onload = function(){
+    frame.classList.remove("fade-out");
+    setTimeout(()=>{
+        loader.classList.add("hidden");
+    },300);
+};
+
+window.goToStage = goToStage;
+
+/* Hide loader after first load */
+window.onload = function(){
+    setTimeout(()=>{
+        loader.classList.add("hidden");
+    },800);
+};
 </script>
 
 </body>
