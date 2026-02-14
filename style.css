@@ -1,9 +1,10 @@
 body{
 margin:0;
-font-family:'Poppins',sans-serif;
 overflow:hidden;
+font-family:'Poppins',sans-serif;
 }
 
+/* Background */
 .background{
 position:fixed;
 top:0;
@@ -14,58 +15,77 @@ background:url("bg.jpg") center center / cover no-repeat;
 z-index:-10;
 }
 
-.dreamsSection{
+/* Main Slide */
+.dreamsSlide{
 height:100vh;
 display:flex;
 flex-direction:column;
+justify-content:center;
 align-items:center;
-padding-top:60px;
 position:relative;
 }
 
+/* Heading */
 .dreamTitle{
 font-family:'Dancing Script',cursive;
-font-size:60px;
+font-size:55px;
 color:#ff2f7d;
-margin-bottom:10px;
+margin-bottom:60px;
 }
 
-/* IMPORTANT: Increased height to prevent cropping */
+/* Collage container */
 .collage{
 position:relative;
-width:900px;
-height:650px;   /* increased */
-margin-top:10px;
+width:800px;
+height:520px;
 }
 
-/* Image styling */
-.dream{
+/* Images */
+.img{
 position:absolute;
-height:200px;
-width:auto;
-border-radius:20px;
-box-shadow:0 20px 45px rgba(0,0,0,0.25);
+max-width:220px;
+max-height:220px;
+border-radius:25px;
+box-shadow:0 20px 50px rgba(0,0,0,0.25);
 transition:0.4s ease;
+object-fit:contain;
 }
 
-.dream:hover{
-transform:scale(1.07) rotate(0deg);
-z-index:10;
+/* Diamond cluster layout (tight + centered) */
+
+.i1{ top:0; left:90px; }
+.i2{ top:0; left:300px; }
+.i3{ top:0; left:510px; }
+
+.i4{ top:170px; left:160px; }
+.i5{ top:170px; left:370px; }
+.i6{ top:170px; left:580px; }
+
+.i7{ top:330px; left:240px; }
+.i8{ top:330px; left:390px; }
+.i9{ top:330px; left:540px; }
+
+/* Hover lift */
+.img:hover{
+transform:translateY(-8px) scale(1.05);
 }
 
-/* ===== ORGANIC POSITIONING ===== */
+/* Floating Emojis */
+.float{
+position:absolute;
+font-size:24px;
+animation:floaty 6s ease-in-out infinite;
+opacity:0.8;
+}
 
-/* Row 1 */
-.d1{ top:40px; left:70px; transform:rotate(-7deg); }
-.d2{ top:20px; left:300px; transform:rotate(6deg); }
-.d3{ top:50px; left:540px; transform:rotate(-5deg); }
+.e1{ top:20%; left:10%; animation-delay:0s; }
+.e2{ top:30%; right:15%; animation-delay:1s; }
+.e3{ bottom:25%; left:15%; animation-delay:2s; }
+.e4{ bottom:20%; right:10%; animation-delay:3s; }
+.e5{ top:50%; left:5%; animation-delay:4s; }
 
-/* Row 2 */
-.d4{ top:230px; left:180px; transform:rotate(6deg); }
-.d5{ top:210px; left:380px; transform:rotate(-6deg); }
-.d6{ top:230px; left:610px; transform:rotate(5deg); }
-
-/* Row 3 (FIXED: closer + moved up slightly) */
-.d7{ top:400px; left:250px; transform:rotate(-5deg); }
-.d8{ top:390px; left:420px; transform:rotate(7deg); }
-.d9{ top:400px; left:590px; transform:rotate(-4deg); }
+@keyframes floaty{
+0%{ transform:translateY(0px); }
+50%{ transform:translateY(-20px); }
+100%{ transform:translateY(0px); }
+}
