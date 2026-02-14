@@ -3,35 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Story</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@400;500;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+<title>Stage 2</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<img src="bg.jpg" class="bg">
+<div class="background"></div>
 
 <!-- ================= TIMELINE ================= -->
-<section id="timelineSlide" class="slide">
+
+<section id="timelineSection">
 
 <h1 class="mainHeading">Our Story</h1>
 
 <div class="timelineWrapper">
 
-<svg class="timelineSVG" viewBox="0 0 400 2000">
+<svg class="timelineSVG">
 <path id="curvePath"
-d="M200 0 
-C 300 200, 100 400, 200 600
-C 300 800, 100 1000, 200 1200
-C 300 1400, 100 1600, 200 1800
-C 250 1900, 150 1950, 200 2000"
-fill="none"
-stroke="#ff4f8b"
-stroke-width="4"
-stroke-linecap="round"/>
+d="M3 0 
+C 80 250, -60 500, 3 750
+C 80 1000, -60 1250, 3 1500
+C 80 1750, -60 2000, 3 2250
+C 80 2500, -60 2750, 3 3000" />
 </svg>
 
 <div class="events">
@@ -61,15 +58,68 @@ stroke-linecap="round"/>
 <p>Feelings turned into courage. I asked. You said yes. And life changed.</p>
 </div>
 
-</div>
+<div class="event right">
+<h3><span class="date">21 Sept 2024</span> — Everything Felt Different</h3>
+<p>Your dance. The metro ride. The first real heart-to-heart. The day “us” became deeper.</p>
 </div>
 
-<button class="continueBtn" onclick="showQuiz()">Continue →</button>
+<div class="event left">
+<h3><span class="date">22 Oct 2024</span> — Our First Movie</h3>
+<p>Side by side. Favorite actor on screen. But you were my favorite scene.</p>
+</div>
 
+<div class="event right">
+<h3><span class="date">15 Nov 2024</span> — Our First Frame</h3>
+<p>Our first picture together. A ring that stayed. A memory that never will fade.</p>
+</div>
+
+<div class="event left">
+<h3><span class="date">28 Dec 2024</span> — Our First Official Date</h3>
+<p>Just us. Walking, talking, laughing. The beginning of “us time.”</p>
+</div>
+
+<div class="event right">
+<h3><span class="date">13 May 2025</span> — The Gentle First Kiss</h3>
+<p>A quiet farm. Soft moments. A kiss on your palm — simple, but unforgettable.</p>
+</div>
+
+<div class="event left">
+<h3><span class="date">17 May 2025</span> — Prayers Together</h3>
+<p>Our first temple visit. Side by side. Grateful for what we found in each other.</p>
+</div>
+
+<div class="event right">
+<h3><span class="date">8 Aug 2025</span> — Home</h3>
+<p>My birthday. Your surprise. The first time you stepped into my world.</p>
+</div>
+
+<div class="event left">
+<h3><span class="date">27 Aug 2025</span> — The Hug We Needed</h3>
+<p>After missing you too much, that first hug said everything words couldn’t.</p>
+</div>
+
+<div class="event right">
+<h3><span class="date">20 Sept 2025</span> — One Year of Us</h3>
+<p>365 days of choosing each other. Still choosing. Still sure.</p>
+</div>
+
+<div class="event left">
+<h3><span class="date">27–29 Oct 2025</span> — Growing Stronger</h3>
+<p>Our first misunderstanding. Not the end — but proof that we choose to stay.</p>
+</div>
+
+</div>
+
+<div class="continueWrapper">
+<button id="continueBtn">Continue →</button>
+</div>
+
+</div>
 </section>
 
 <!-- ================= QUIZ ================= -->
-<section id="quizSlide" class="slide hidden">
+
+<section id="quizSection" class="hidden">
 
 <h1 class="mainHeading">Chinnu or Subbu 💞</h1>
 
@@ -78,16 +128,17 @@ stroke-linecap="round"/>
 <h2 id="question"></h2>
 
 <div class="options">
-<button class="optionBtn" onclick="answer(0)">Chinnu</button>
-<button class="optionBtn" onclick="answer(1)">Subbu</button>
+<button class="optionBtn">Chinnu</button>
+<button class="optionBtn">Subbu</button>
 </div>
 
-<p id="reaction" class="reaction"></p>
+<div id="reaction"></div>
 
 </div>
 
 </section>
 
 <script src="script.js"></script>
+
 </body>
 </html>
