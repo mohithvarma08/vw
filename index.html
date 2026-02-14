@@ -3,62 +3,90 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stage 2</title>
+<title>Our Story</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@400;500;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="app">
-    <img src="bg.jpg" class="bg">
+<img src="bg.jpg" class="bg">
 
-    <!-- TIMELINE -->
-    <section id="timelineSlide" class="slide active">
+<!-- ================= TIMELINE ================= -->
+<section id="timelineSlide" class="slide">
 
-        <h1>Our Story</h1>
+<h1 class="mainHeading">Our Story</h1>
 
-        <div class="timelineWrapper">
-            <svg viewBox="0 0 600 1200" class="curve">
-                <path id="timelinePath"
-                    d="M300 50
-                       C200 200, 400 350, 300 500
-                       C200 650, 400 800, 300 950"
-                    fill="none"
-                    stroke="#ff4f8b"
-                    stroke-width="4"
-                    stroke-linecap="round"/>
-            </svg>
+<div class="timelineWrapper">
 
-            <div class="events">
-                <!-- JS inserts events -->
-            </div>
-        </div>
+<svg class="timelineSVG" viewBox="0 0 400 2000">
+<path id="curvePath"
+d="M200 0 
+C 300 200, 100 400, 200 600
+C 300 800, 100 1000, 200 1200
+C 300 1400, 100 1600, 200 1800
+C 250 1900, 150 1950, 200 2000"
+fill="none"
+stroke="#ff4f8b"
+stroke-width="4"
+stroke-linecap="round"/>
+</svg>
 
-        <button id="toQuiz" class="primaryBtn">Continue ➜</button>
+<div class="events">
 
-    </section>
+<div class="event left">
+<h3><span class="date">20 Nov 2022</span> — The Spy Snap</h3>
+<p>A random picture from afar. A small message. The first spark — before we even knew it was one.</p>
+</div>
 
+<div class="event right">
+<h3><span class="date">18 Aug 2024</span> — The Almost Meet</h3>
+<p>We didn’t meet. But we looked for each other in the crowd. A wave from a distance… and something soft began.</p>
+</div>
 
-    <!-- QUIZ -->
-    <section id="quizSlide" class="slide">
+<div class="event left">
+<h3><span class="date">31 Aug 2024</span> — From Chats to Calls</h3>
+<p>No more just usernames. Numbers exchanged. The connection became real.</p>
+</div>
 
-        <h1>Chinnu or Subbu 💞</h1>
+<div class="event right">
+<h3><span class="date">16 Sept 2024</span> — The Shy First Meet</h3>
+<p>Festival lights. Quiet smiles. Few words… but unforgettable.</p>
+</div>
 
-        <div class="quizCard">
-
-            <div id="question" class="question"></div>
-
-            <div id="options" class="options"></div>
-
-            <div id="reaction" class="reaction"></div>
-
-        </div>
-
-    </section>
+<div class="event left">
+<h3><span class="date">20 Sept 2024</span> — The Yes</h3>
+<p>Feelings turned into courage. I asked. You said yes. And life changed.</p>
+</div>
 
 </div>
+</div>
+
+<button class="continueBtn" onclick="showQuiz()">Continue →</button>
+
+</section>
+
+<!-- ================= QUIZ ================= -->
+<section id="quizSlide" class="slide hidden">
+
+<h1 class="mainHeading">Chinnu or Subbu 💞</h1>
+
+<div class="quizCard">
+
+<h2 id="question"></h2>
+
+<div class="options">
+<button class="optionBtn" onclick="answer(0)">Chinnu</button>
+<button class="optionBtn" onclick="answer(1)">Subbu</button>
+</div>
+
+<p id="reaction" class="reaction"></p>
+
+</div>
+
+</section>
 
 <script src="script.js"></script>
 </body>
