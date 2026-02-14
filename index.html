@@ -1,4 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Story</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="background"></div>
+
+<!-- ================= TIMELINE ================= -->
+<section id="timelineSection" class="section active">
+
+<h1 class="mainTitle">Our Story</h1>
+
+<div class="timeline">
+
+<div class="curveLine"></div>
+
 <div class="events">
+
+<!-- 15 EVENTS -->
 
 <div class="event left">
 <h3><span>20 Nov 2022</span> — The Spy Snap</h3>
@@ -74,3 +99,34 @@
 <h3><span>27–29 Oct 2025</span> — Growing Stronger</h3>
 <p>Our first misunderstanding. Not the end — but proof that we choose to stay.</p>
 </div>
+
+</div>
+</div>
+
+<button class="continueBtn" onclick="goToQuiz()">Continue →</button>
+
+</section>
+
+
+<!-- ================= QUIZ ================= -->
+<section id="quizSection" class="section">
+
+<h1 class="mainTitle">Chinnu or Subbu 💞</h1>
+
+<div class="quizCard">
+<h2 id="question"></h2>
+
+<div class="options">
+<button onclick="answer()">Chinnu</button>
+<button onclick="answer()">Subbu</button>
+</div>
+
+<div id="reaction" class="reaction"></div>
+
+</div>
+
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
