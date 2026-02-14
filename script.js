@@ -10,69 +10,96 @@ event.classList.add("show");
 });
 
 const lastEvent = document.querySelector(".event:last-of-type");
-const lastEmojiPosition = lastEvent.offsetTop + 120;
-curveLine.style.height = lastEmojiPosition + "px";
+const lineHeight = lastEvent.offsetTop + 100;
+curveLine.style.height = lineHeight + "px";
 
 });
-
-
-function goToQuiz(){
-document.getElementById("timelineSection").classList.remove("active");
-document.getElementById("quizSection").classList.add("active");
-startQuiz();
-}
 
 /* QUIZ */
 
 const questions = [
 {
 q:"1️⃣ Who fell first?",
+a1:"Chinnu",
+a2:"Subbu",
 reaction:"Yes… it was me. And I’d fall again. 🫶"
 },
 {
 q:"2️⃣ Who gets jealous faster?",
-reaction:"Correct. But it’s kind of cute. 😌"
+a1:"Chinnu",
+a2:"Subbu",
+reaction:"Hmm… we both know the truth. 👀"
 },
 {
 q:"3️⃣ Who misses the other more?",
+a1:"Chinnu",
+a2:"Subbu",
 reaction:"Honestly… it’s a competition. 🥹"
 },
 {
 q:"4️⃣ Who overthinks more?",
+a1:"Chinnu",
+a2:"Subbu",
 reaction:"It’s okay. You rule my thoughts!"
 },
 {
 q:"5️⃣ Who would get more clingy after marriage?",
+a1:"Chinnu",
+a2:"Subbu",
 reaction:"We both won’t complain. 😏"
 },
 {
 q:"6️⃣ Who imagines our future more?",
+a1:"Chinnu",
+a2:"Subbu",
 reaction:"I already see it. 💍"
 },
 {
 q:"7️⃣ Who chooses the other every single day?",
+a1:"Both",
+a2:"",
 reaction:"I choose you. Every single day. Without doubt. 🤍"
 }
 ];
 
-let currentQuestion = 0;
+let current = 0;
 
-function startQuiz(){
-document.getElementById("question").innerText = questions[0].q;
+const questionEl = document.getElementById("question");
+const btn1 = document.getElementById("btn1");
+const btn2 = document.getElementById("btn2");
+const reactionEl = document.getElementById("reaction");
+const nextBtn = document.getElementById("nextBtn");
+
+function loadQuestion(){
+questionEl.innerText = questions[current].q;
+btn1.innerText = questions[current].a1;
+btn2.innerText = questions[current].a2;
+reactionEl.innerText = "";
+nextBtn.style.display="none";
+btn2.style.display = questions[current].a2 ? "inline-block":"none";
 }
 
-function answer(choice){
-const reactionDiv = document.getElementById("reaction");
-reactionDiv.innerText = questions[currentQuestion].reaction;
-
+function answer(){
+reactionEl.innerText = questions[current].reaction;
 setTimeout(()=>{
-currentQuestion++;
-if(currentQuestion < questions.length){
-reactionDiv.innerText="";
-document.getElementById("question").innerText = questions[currentQuestion].q;
-} else {
-document.querySelector(".options").style.display="none";
-document.getElementById("nextAfterQuiz").style.display="block";
-}
+nextBtn.style.display="inline-block";
 },2250);
+}
+
+btn1.onclick=answer;
+btn2.onclick=answer;
+
+nextBtn.onclick=function(){
+current++;
+if(current < questions.length){
+loadQuestion();
+}else{
+nextBtn.style.display="none";
+}
+};
+
+function goToQuiz(){
+document.getElementById("timelineSection").classList.remove("active");
+document.getElementById("quizSection").classList.add("active");
+loadQuestion();
 }
