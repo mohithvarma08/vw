@@ -3,141 +3,54 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Story ❤️</title>
 
-<title>For You ❤️</title>
+<style>
+    html, body {
+        margin:0;
+        padding:0;
+        height:100%;
+        overflow:hidden;
+        background:black;
+    }
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Crimson+Text:wght@600&family=Poppins:wght@300;400;500&family=Playfair+Display:wght@500&family=IM+Fell+English&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="style.css">
+    #stageFrame {
+        width:100vw;
+        height:100vh;
+        border:none;
+    }
+</style>
 </head>
+
 <body>
 
-<!-- UNIVERSAL BACKGROUND -->
-<div class="site-bg"></div>
+<iframe id="stageFrame" src="intro.html"></iframe>
 
-<!-- MUSIC (ONLY ONCE) -->
-<audio id="bgMusic" loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
+<script>
+    const frame = document.getElementById("stageFrame");
 
-<!-- ================= MASTER STAGES ================= -->
+    function goToStage(stageName){
+        switch(stageName){
+            case "intro":
+                frame.src = "intro.html";
+                break;
+            case "memories":
+                frame.src = "memories.html";
+                break;
+            case "timeline":
+                frame.src = "timeline.html";
+                break;
+            case "future":
+                frame.src = "future.html";
+                break;
+            case "letter":
+                frame.src = "letter.html";
+                break;
+        }
+    }
 
-<!-- STAGE 1 – INTRO -->
-<section id="stage-intro" class="stage active">
-  <div class="intro-slide show" id="cover">
-    <button class="openBtn" onclick="openIntro()">💌</button>
-    <p class="tapText">Tap to open</p>
-  </div>
+    window.goToStage = goToStage;
+</script>
 
-  <div class="intro-slide" id="introMain">
-    <h1>Hey you… I made something for you 💌</h1>
-    <img src="sticker1.png" class="intro-sticker">
-    <p>Would you like to see it?</p>
-    <div>
-      <button onclick="showIntroSlide('yes')">Yes 💖</button>
-      <button id="introNoBtn">No 😏</button>
-    </div>
-  </div>
-
-  <div class="intro-slide" id="introNo">
-    <h1>How dare you click NO 😤</h1>
-    <img src="sticker2.png" class="intro-sticker">
-    <p>That button is illegal. Try again.</p>
-    <button onclick="showIntroSlide('yes')">Okay okay 😅</button>
-  </div>
-
-  <div class="intro-slide yesLayout" id="introYes">
-    <h1>Before we go ahead…</h1>
-    <img src="sticker3.png" class="intro-sticker">
-    <div class="intro-card">
-      <p>
-        You have no idea how special you are to me.<br>
-        Today and always — I choose you. 🤍
-      </p>
-      <button onclick="goToStage('stage-memories')">Next ➜</button>
-    </div>
-  </div>
-</section>
-
-<!-- STAGE 2 – MEMORIES -->
-<section id="stage-memories" class="stage">
-  <h1 class="title">Some of our favorite memories</h1>
-  <div class="polaroid-grid">
-    <div class="polaroid"><div class="polaroid-inner"><img src="photo1.jpg"><div class="caption">Light fell right✨</div></div></div>
-    <div class="polaroid"><div class="polaroid-inner"><img src="photo2.jpg"><div class="caption">Perfectly Meant💫</div></div></div>
-    <div class="polaroid"><div class="polaroid-inner"><img src="photo3.jpg"><div class="caption">Comfort Found🫶</div></div></div>
-    <div class="polaroid"><div class="polaroid-inner"><img src="photo4.jpg"><div class="caption">First of Many♾️</div></div></div>
-    <div class="polaroid"><div class="polaroid-inner"><img src="photo5.jpg"><div class="caption">That Look🤌🏻</div></div></div>
-    <div class="polaroid"><div class="polaroid-inner"><img src="photo6.jpg"><div class="caption">Soft moments🤍</div></div></div>
-    <div class="polaroid"><div class="polaroid-inner"><img src="photo7.jpg"><div class="caption">Little Laughs😚</div></div></div>
-    <div class="polaroid"><div class="polaroid-inner"><img src="photo8.jpg"><div class="caption">Me & Mine🧿</div></div></div>
-    <div class="polaroid"><div class="polaroid-inner"><img src="photo9.jpg"><div class="caption">Forever energy💍</div></div></div>
-  </div>
-
-  <button class="mainNext" onclick="goToStage('stage-timeline')">Next ➜</button>
-
-  <div class="memories-fullscreen hidden">
-    <div class="fullscreen-content"></div>
-  </div>
-</section>
-
-<!-- STAGE 3 – TIMELINE -->
-<section id="stage-timeline" class="stage">
-  <h1 class="title">Our Story</h1>
-  <div class="timeline">
-    <div class="timeline-line"></div>
-
-    <div class="timeline-event left">20 Nov 2022 — The Spy Snap 📷</div>
-    <div class="timeline-event right">18 Aug 2024 — The Almost Meet 😊</div>
-    <div class="timeline-event left">31 Aug 2024 — Numbers Exchanged 📱</div>
-    <div class="timeline-event right">16 Sept 2024 — First Meet 💕</div>
-    <div class="timeline-event left">20 Sept 2024 — The Yes 💍</div>
-  </div>
-
-  <button class="mainNext" onclick="goToStage('stage-future')">Next ➜</button>
-</section>
-
-<!-- STAGE 4 – FUTURE -->
-<section id="stage-future" class="stage">
-  <h1 class="title">Things I Want To Do With You ✨</h1>
-
-  <div class="future-collage">
-    <img src="dreams1.jpg" class="future-img">
-    <img src="dreams2.jpg" class="future-img">
-    <img src="dreams3.jpg" class="future-img">
-  </div>
-
-  <button class="mainNext" onclick="goToStage('stage-letter')">Next ➜</button>
-</section>
-
-<!-- STAGE 5 – LETTER -->
-<section id="stage-letter" class="stage">
-  <div class="letter-slide active" id="letterIntro">
-    <h1 class="title">For You 💌</h1>
-    <img src="envelope.png" class="envelope" id="openEnvelope">
-  </div>
-
-  <div class="letter-slide" id="loveLetter">
-    <div class="whiteCard">
-      <p>My love… You are everything to me ❤️</p>
-      <button class="btn" id="toProposal">Next →</button>
-    </div>
-  </div>
-
-  <div class="letter-slide" id="proposalSlide">
-    <div class="whiteCard">
-      <h2>Will you be my forever Valentine? ❤️</h2>
-      <button class="btn" id="yesBtn">YES 💖</button>
-      <button class="btn" id="yesBtn2">ABSOLUTELY YES 💘</button>
-    </div>
-  </div>
-
-  <div class="letter-slide" id="celebrationSlide">
-    <h1 class="celebrationText">Happy Valentines Day 💞</h1>
-  </div>
-</section>
-
-<script src="script.js"></script>
 </body>
 </html>
