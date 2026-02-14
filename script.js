@@ -1,18 +1,33 @@
-// ================= TIMELINE ANIMATION =================
-const items = document.querySelectorAll('.timelineItem');
+// Timeline animation
+const items = document.querySelectorAll(".timeline-item");
 
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            entry.target.classList.add('show');
-        }
-    });
+const observer = new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
+});
 },{threshold:0.2});
 
-items.forEach(item => observer.observe(item));
+items.forEach(item=>observer.observe(item));
 
-// ================= QUIZ =================
 
+// Continue button
+const continueBtn = document.getElementById("continueBtn");
+const timelineSection = document.getElementById("timeline");
+const quizSection = document.getElementById("quiz");
+
+continueBtn.addEventListener("click",()=>{
+timelineSection.style.opacity="0";
+setTimeout(()=>{
+timelineSection.style.display="none";
+quizSection.classList.remove("hidden");
+quizSection.style.opacity="1";
+},600);
+});
+
+
+// Quiz Logic
 const quizData = [
 {
 question:"Who fell first?",
@@ -54,19 +69,16 @@ reaction:"I choose you. Every single day. Without doubt. 🤍"
 }
 ];
 
-let current = 0;
+let current=0;
 
-const questionEl = document.getElementById("question");
-const optionsEl = document.getElementById("options");
-const reactionEl = document.getElementById("reaction");
-const nextBtn = document.getElementById("nextBtn");
+const questionEl=document.getElementById("question");
+const optionsEl=document.getElementById("options");
+const reactionEl=document.getElementById("reaction");
 
 function loadQuestion(){
 reactionEl.textContent="";
-nextBtn.style.display="none";
 optionsEl.innerHTML="";
-
-const q = quizData[current];
+const q=quizData[current];
 questionEl.textContent=q.question;
 
 q.options.forEach(opt=>{
@@ -78,22 +90,16 @@ reactionEl.textContent=q.reactionChoice[opt];
 }else{
 reactionEl.textContent=q.reaction;
 }
-nextBtn.style.display="inline-block";
+
+setTimeout(()=>{
+current++;
+if(current<quizData.length){
+loadQuestion();
+}
+},1800);
 };
 optionsEl.appendChild(btn);
 });
 }
-
-nextBtn.onclick=()=>{
-current++;
-if(current<quizData.length){
-loadQuestion();
-}else{
-reactionEl.textContent="💖";
-questionEl.textContent="Thank you for playing 💞";
-optionsEl.innerHTML="";
-nextBtn.style.display="none";
-}
-};
 
 loadQuestion();
