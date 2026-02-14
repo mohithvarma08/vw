@@ -1,137 +1,134 @@
+*{margin:0;padding:0;box-sizing:border-box}
+
 body{
-  margin:0;
   font-family:'Poppins',sans-serif;
   overflow:hidden;
 }
 
-/* Background */
-.background{
+.site-bg{
   position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:url("bg.jpg") center center / cover no-repeat;
-  z-index:-1;
+  inset:0;
+  background:url("bg.jpg") center/cover no-repeat;
+  z-index:-10;
 }
 
-/* Slides */
-.slide{
-  height:100vh;
-  width:100%;
-  display:none;
+/* Stage System */
+.stage{
   position:absolute;
-  top:0;
-  left:0;
-  text-align:center;
-}
-
-.slide.active{
-  display:flex;
-  flex-direction:column;
+  inset:0;
+  display:none;
   justify-content:center;
   align-items:center;
+  flex-direction:column;
+  text-align:center;
+  padding:40px;
 }
 
-/* Heading */
-.heading{
+.stage.active{
+  display:flex;
+}
+
+.title{
   font-family:'Dancing Script',cursive;
-  font-size:60px;
+  font-size:50px;
   color:#ff2f7d;
-  margin-bottom:50px;
-  transform:translateY(-40px);
-}
-
-/* Envelope */
-.envelope{
-  width:220px;
-  cursor:pointer;
-  animation:breathing 2s infinite ease-in-out;
-}
-
-@keyframes breathing{
-  0%{transform:scale(1);}
-  50%{transform:scale(1.08);}
-  100%{transform:scale(1);}
-}
-
-/* White Card */
-.whiteCard{
-  background:white;
-  padding:60px 70px;
-  border-radius:25px;
-  box-shadow:0 25px 70px rgba(0,0,0,0.2);
-  width:700px;
-  max-width:90%;
-}
-
-/* Letter */
-.letterCard p{
-  font-family:'Playfair Display',serif;
-  font-size:18px;
-  line-height:1.8;
-  color:#444;
-}
-
-/* Proposal */
-.proposalCard h2{
-  font-family:'Dancing Script',cursive;
-  font-size:42px;
-  margin-bottom:20px;
-}
-
-.proposalCard h3{
-  font-family:'Playfair Display',serif;
-  font-size:26px;
   margin-bottom:40px;
 }
 
-/* Buttons */
-.buttonRow{
-  display:flex;
-  gap:30px;
-  justify-content:center;
-}
-
-.btn{
-  padding:15px 40px;
-  font-size:18px;
+button{
+  padding:12px 30px;
   border:none;
   border-radius:30px;
   background:#ff2f7d;
   color:white;
   cursor:pointer;
+}
+
+/* Memories */
+.polaroid-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:30px;
+  margin-bottom:40px;
+}
+
+.polaroid-inner{
+  background:white;
+  padding:15px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.polaroid-inner img{
+  width:100%;
+  border-radius:5px;
+}
+
+/* Timeline */
+.timeline{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  margin-bottom:40px;
+}
+
+.timeline-event{
+  background:white;
+  padding:15px;
+  border-radius:15px;
+}
+
+/* Future */
+.future-collage{
+  display:flex;
+  gap:20px;
+  margin-bottom:40px;
+}
+
+.future-img{
+  width:200px;
+  border-radius:20px;
   transition:0.3s;
 }
 
-.btn:hover{
+.future-img:hover{
   transform:scale(1.05);
 }
 
-/* Celebration */
-.celebrationSticker{
-  width:320px;
-  margin-bottom:40px;
+/* Letter */
+.letter-slide{
+  display:none;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+.letter-slide.active{
+  display:flex;
+}
+
+.envelope{
+  width:200px;
+  cursor:pointer;
+  animation:breathing 2s infinite;
+}
+
+@keyframes breathing{
+  50%{transform:scale(1.1);}
+}
+
+.whiteCard{
+  background:white;
+  padding:40px;
+  border-radius:20px;
+}
+
+.btn{
+  margin-top:20px;
 }
 
 .celebrationText{
   font-family:'IM Fell English',serif;
   font-size:60px;
   color:#ff2f7d;
-}
-
-/* Confetti */
-.confetti{
-  position:fixed;
-  width:10px;
-  height:10px;
-  background:red;
-  top:-10px;
-  animation:fall 3s linear infinite;
-}
-
-@keyframes fall{
-  to{
-    transform:translateY(100vh) rotate(360deg);
-  }
 }
